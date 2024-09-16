@@ -33,7 +33,6 @@
 	qutebrowser
 
 	#CLI program
-	kpcli #password manager
 	acpi #battery status
 	pulsemixer #audio manager
 	cmatrix #!!!
@@ -54,7 +53,7 @@
 
 	#Video editor
 	shotcut
-	
+
 	#Image editor
 	pinta
 	inkscape
@@ -68,10 +67,11 @@
 	#Font
 	jetbrains-mono
         nerdfonts
+	wezterm
         ];
 
-  home.username = "simon";
-  home.homeDirectory = "/home/simon";
-  home.stateVersion = "22.11";
+  home.username = "ngrogan";
+  home.homeDirectory = "/home/ngrogan";
+  home.stateVersion = "24.05";
   programs.home-manager.enable = true;
 }

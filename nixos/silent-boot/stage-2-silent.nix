@@ -12,7 +12,6 @@ let
     shell = "${pkgs.bash}/bin/bash";
     inherit (config.boot) systemdExecutable extraSystemdUnitPaths;
     isExecutable = true;
-    inherit (config.nix) readOnlyStore;
     inherit useHostResolvConf;
     inherit (config.system.build) earlyMountScript;
     path = lib.makeBinPath ([

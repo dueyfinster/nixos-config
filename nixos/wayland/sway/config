@@ -22,7 +22,7 @@ client.background       #ffffff
 default_border pixel 1
 
 # Wallpaper
-output * bg /home/simon/nixos-config/wallpaper.png fill
+output * bg /home/ngrogan/nixos-config/wallpaper.png fill
 
 # Key bindings
     # Start a terminal
@@ -138,10 +138,10 @@ exec waybar &
 
 # Startup
 assign [app_id="terminal1"] workspace number 2
-assign [app_id="qutebrowser"] workspace number 3
-assign [app_id="codium-url-handler"] workspace number 4
+assign [app_id="firefox"] workspace number 3
+assign [app_id="steam"] workspace number 4
 
-exec alacritty --class "terminal1" &
+exec wezterm --class "terminal1" &
 exec qutebrowser &
 exec codium --ozone-platform-hint=auto &
 
@@ -152,5 +152,8 @@ for_window [app_id="com.github.finefindus.eyedropper"] floating enable
 exec dbus-sway-environment
 exec configure-gtk
 exec systemctl --user import-environment
+
+exec firefox &
+exec steam &
 
 include @sysconfdir@/sway/config.d/*

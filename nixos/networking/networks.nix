@@ -1,8 +1,6 @@
 {config, pkgs, ...}:
 {
-  networking.hostName = "framework";
-  networking.wireless.enable = true;
-  networking.wireless.userControlled.enable = true;
+  networking.hostName = "compage";
 
   networking.firewall.enable = false;
   #networking.firewall.allowedUDPPorts = [...];
@@ -13,5 +11,4 @@
 
   #Define your networks here
   #Syntax : 
-  #networking.wireless.networks.Network-Name.psk = "password";
 }

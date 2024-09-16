@@ -7,7 +7,7 @@
     TERM = "alacritty";
   };
 
-  working_directory = "/home/simon/Desktop";
+  working_directory = "/home/ngrogan/Desktop";
 
   window = {
     padding = {
