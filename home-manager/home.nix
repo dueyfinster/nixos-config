@@ -34,6 +34,8 @@
 	chromium
 	qutebrowser
 
+	discord
+
 	#CLI program
 	acpi #battery status
 	pulsemixer #audio manager
@@ -79,10 +81,7 @@
 	wezterm
         ];
 
-	nixpkgs.config.allowUnfreePredicate = pkg:
-    builtins.elem (pkgs.lib.getName pkg) [
-      "spotify"
-    ];
+	nixpkgs.config.allowUnfree = true;
 
   home.username = "ngrogan";
   home.homeDirectory = "/home/ngrogan";
