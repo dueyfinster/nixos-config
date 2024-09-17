@@ -17,11 +17,13 @@
 	./config/neovim.nix
 
 	#Waybar
-        ./config/waybar.nix
+  ./config/waybar.nix
 
         #Yt-dlp
-        ./config/yt-dlp.nix
+  ./config/yt-dlp.nix
   ];
+
+
   
   home.packages = with pkgs; [
 	#Text editor
@@ -37,7 +39,8 @@
 	pulsemixer #audio manager
 	cmatrix #!!!
 	imv #image viewer
-	nix-prefetch-github #get hash and head from github repo
+  nix-prefetch-github #get hash and head from github repo
+  stow
 
 	#Color palette
 	eyedropper
@@ -60,15 +63,26 @@
 
 	#Messaging app
 	signal-desktop
+	spotify
+	slurp
+	grim
 
 	#Office suite
 	libreoffice
+
+  # Control Media 
+	playerctl
 
 	#Font
 	jetbrains-mono
         nerdfonts
 	wezterm
         ];
+
+	nixpkgs.config.allowUnfreePredicate = pkg:
+    builtins.elem (pkgs.lib.getName pkg) [
+      "spotify"
+    ];
 
   home.username = "ngrogan";
   home.homeDirectory = "/home/ngrogan";
