@@ -160,7 +160,7 @@ exec waybar &
 # Startup
 assign [app_id="terminal1"] workspace number 2
 assign [app_id="firefox"] workspace number 3
-assign [app_id="steam"] workspace number 4
+assign [class="steam"] workspace number 1
 assign [class="spotify"] workspace number 6
 
 exec wezterm --class "terminal1" &
