@@ -12,7 +12,7 @@
     ];
 
     modules-left = [ "custom/logo" "sway/workspaces" "sway/mode" ];
-    modules-right = [ "custom/spotify" "sway/language" "clock" "battery" ];
+    modules-right = [ "custom/spotify" "sway/language" "cpu" "memory" "disk" "network" "battery" "clock"  ];
     
     "custom/logo" = {
       format = "";
@@ -52,9 +52,42 @@
 
     };
 
-    "battery" = {
-      tooltip = true;
-    };
+     "cpu" = {
+        format = "{usage}% ";
+        tooltip = false;
+      };
+      "memory" = {
+  	    interval = 1;
+  	    format = "{used:0.1f}G/{total:0.1f}G ";
+      };
+  
+      "disk" = {
+        interval = 600;
+        format = "{percentage_used}% ";
+        path = "/";
+      };
+
+       battery = {
+              interval = 1;
+              states = {
+                warning = 30;
+                critical = 15;
+              };
+              format = "{capacity}% <span font='11'>{icon}</span>";
+              format-charging = "{capacity}% <span font='11'></span>";
+              format-icons = [ "" "" "" "" "" ];
+              max-length = 25;
+            };
+
+    "network" = {
+  	    format = "{ifname}";
+  	    format-wifi = "{essid} ({signalStrength}%) ";
+  	    format-ethernet = "{ifname} ";
+  	    format-disconnected = "";
+        tooltip-format = "{ifname}: {ipaddr}/{cidr}";
+        on-click = "${pkgs.networkmanagerapplet}/bin/nm-connection-editor";
+  	    max-length = 50;
+      };
 
     "clock" = {
       interval = 60;
@@ -92,7 +125,7 @@
     font-size: 9px;
     margin: 0;
     margin-left: 7px;
-    margin-right: 15px;
+    margin-right: 35px;
     padding: 0;
     font-family: NotoSans Nerd Font Mono;
   }
@@ -113,9 +146,46 @@
     margin-right: 7px;		
   }
 
+  #cpu {
+    margin-left: 7px;
+    margin-right: 12px;
+  }
+
+  #memory {
+    margin-left: 7px;
+    margin-right: 12px;
+  }
+
+  #disk {
+    margin-left: 7px;
+    margin-right: 12px;
+  }
+
+  #network {
+    margin-left: 7px;
+    margin-right: 7px;
+  }
+
   #battery {
     margin-left: 7px;
-    margin-right: 3px;
+    margin-right: 12px;
+  }
+
+  #clock {
+    margin-right: 8px;
+  }
+
+  #battery.warning {
+    color: #ff5d17;
+    background-color: rgba(0,0,0,0);
+  }
+  #battery.critical {
+    color: #ff200c;
+    background-color: rgba(0,0,0,0);
+  }
+  #battery.charging {
+    color: #9ece6a;
+    background-color: rgba(0,0,0,0);
   }
   '';
 }
