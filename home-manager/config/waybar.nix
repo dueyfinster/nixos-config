@@ -12,7 +12,7 @@
     ];
 
     modules-left = [ "custom/logo" "sway/workspaces" "sway/mode" ];
-    modules-right = [ "sway/language" "clock" "battery" ];
+    modules-right = [ "custom/spotify" "sway/language" "clock" "battery" ];
     
     "custom/logo" = {
       format = "";
@@ -23,7 +23,7 @@
     "sway/workspaces" = {
       disable-scroll = true;
       all-outputs = true;
-      persistent_workspaces = {
+      persistent-workspaces = {
         "1" = []; 
         "2" = [];
 	"3" = [];
@@ -35,6 +35,15 @@
     "sway/mode" = {
       tooltip = false;
     };
+
+    "custom/spotify" = {
+          interval = 5;
+          exec = ''
+            ${pkgs.playerctl}/bin/playerctl -p spotify metadata --format "{{xesam:artist}} - {{xesam:title}}"'';
+          format = "♫ {}";
+          max-length = 70;
+          on-click = "${pkgs.playerctl}/bin/playerctl -p spotify play-pause";
+        };
     
     "sway/language" = {
       format = "{shortDescription}";
@@ -43,14 +52,15 @@
 
     };
 
-    "clock" = {
-      interval = 60;
-      format = "{:%a %d/%m %I:%M}";
+    "battery" = {
+      tooltip = true;
     };
 
-    "battery" = {
-      tooltip = false;
+    "clock" = {
+      interval = 60;
+      format = "{:%a %d/%m %H:%M}";
     };
+    
   };
   };
 
@@ -74,6 +84,15 @@
     margin: 0;
     margin-left: 7px;
     margin-right: 12px;
+    padding: 0;
+    font-family: NotoSans Nerd Font Mono;
+  }
+
+  #custom-spotify {
+    font-size: 9px;
+    margin: 0;
+    margin-left: 7px;
+    margin-right: 15px;
     padding: 0;
     font-family: NotoSans Nerd Font Mono;
   }
