@@ -33,7 +33,6 @@
     wget
     tmux
     freshfetch
-    waybar
    ];
   
   #programs.mtr.enable = true;
