@@ -45,6 +45,10 @@ output * bg /home/ngrogan/nixos-config/wallpaper.png fill
 
     # Screenshots
     bindsym $mod+s exec grim  -g "$(slurp)" ~/Desktop/Screenshot-$(date +'%H:%M:%S.png')
+    # Use grimshot.
+    # bindsym Print exec grim- save area
+    # bindsym Shift+Print exec grim save screen
+    # bindsym $mod+Print exec grim save active
 
 
 # Moving around:
@@ -109,6 +113,18 @@ bindsym XF86AudioMute exec 'pulsemixer --toggle-mute'
 bindsym XF86AudioRaiseVolume exec 'pulsemixer --change-volume +5'
 bindsym XF86AudioLowerVolume exec 'pulsemixer --change-volume -5'
 
+# Airplane mode
+bindsym XF86RFKill exec nmcli radio all $(test $(nmcli -g wifi radio all) == "enabled" && "off" || echo "on")
+
+# Framework Laptop F12: XF86AudioMedia
+# Browser
+set $browser firefox
+set $url_focus https://frame.work
+set $url_manual https://community.frame.work/
+
+bindsym XF86AudioMedia exec $browser $url_focus
+bindsym Shift+XF86AudioMedia exec $browser $url_manual
+
 # Git token (paste it into "")
 bindsym $mod+g exec wl-copy "" 
 
@@ -148,6 +164,11 @@ input "type:touchpad" {
     dwt enabled
     tap enabled
     middle_emulation enabled
+    accel_profile adaptive
+    click_method clickfinger
+    events disabled_on_external_mouse
+    pointer_accel 0.8
+    scroll_method two_finger
 }
 
 input "type:keyboard" {
@@ -182,7 +203,7 @@ bindsym $win+Tab workspace next
 for_window [app_id="com.github.finefindus.eyedropper"] floating enable
 for_window [app_id="firefox" title="^Picture-in-Picture$"] \
     floating enable, move position 840 600, sticky enable
-
+for_window [app_id="firefox" title= "Extension: (Bitwarden Password Manager) - Bitwarden — Mozilla Firefox"] floating enable
 # Fixes
 exec dbus-sway-environment
 exec configure-gtk
