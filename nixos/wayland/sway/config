@@ -1,5 +1,7 @@
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
+set $win Mod1
+
 # Home row direction keys, like vim
 set $left h
 set $down j
@@ -7,7 +9,7 @@ set $up k
 set $right l
 
 # Terminal
-set $term alacritty
+set $term wezterm
 
 # Colors
 # class                 border  backgr. text    indicator child_border
@@ -42,7 +44,7 @@ output * bg /home/ngrogan/nixos-config/wallpaper.png fill
     bindsym $mod+Shift+c reload
 
     # Screenshots
-    bindsym $mod+s exec grim  -g "$(slurp)" ~/Desktop/Pictures/Screenshots/Screenshot-$(date +'%H:%M:%S.png')
+    bindsym $mod+s exec grim  -g "$(slurp)" ~/Desktop/Screenshot-$(date +'%H:%M:%S.png')
 
 
 # Moving around:
@@ -69,24 +71,43 @@ output * bg /home/ngrogan/nixos-config/wallpaper.png fill
     bindsym $mod+Shift+Right move right
 
 # Workspaces:    
-    # Switch to workspace
-    bindsym $mod+1 workspace number 1
-    bindsym $mod+2 workspace number 2
-    bindsym $mod+3 workspace number 3
-    bindsym $mod+4 workspace number 4
-    # Move focused container to workspace
-    bindsym $mod+Shift+1 move container to workspace number 1
-    bindsym $mod+Shift+2 move container to workspace number 2
-    bindsym $mod+Shift+3 move container to workspace number 3
-    bindsym $mod+Shift+4 move container to workspace number 4
+# Switch to workspace
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+
+# Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6
+
+
+# Switch between workspaces
+# workspace <next|prev|next_on_output|prev_on_output>
+bindsym $mod+$win+Left workspace prev
+bindsym $mod+$win+Right workspace next
 
 # Media keys
+# Media player controls
+bindsym XF86AudioPlay exec playerctl play-pause
+#bindsym XF86AudioPause exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
 # Brightness
 bindsym XF86MonBrightnessDown exec light -U 10
 bindsym XF86MonBrightnessUp exec light -A 10
 
 # Volume
 bindsym XF86AudioMute exec 'pulsemixer --toggle-mute'
+bindsym XF86AudioRaiseVolume exec 'pulsemixer --change-volume +5'
+bindsym XF86AudioLowerVolume exec 'pulsemixer --change-volume -5'
 
 # Git token (paste it into "")
 bindsym $mod+g exec wl-copy "" 
@@ -129,8 +150,8 @@ input "type:touchpad" {
     middle_emulation enabled
 }
 
-input "1:1:AT_Translated_Set_2_keyboard" {
-    xkb_layout "us,sk"
+input "type:keyboard" {
+    xkb_layout "us(intl)"
 }
 
 # Waybar
@@ -140,13 +161,27 @@ exec waybar &
 assign [app_id="terminal1"] workspace number 2
 assign [app_id="firefox"] workspace number 3
 assign [app_id="steam"] workspace number 4
+assign [class="spotify"] workspace number 6
 
 exec wezterm --class "terminal1" &
 exec qutebrowser &
 exec codium --ozone-platform-hint=auto &
 
+set $bemenu_args -i -p ''
+bindsym $mod+Space exec bemenu-run $bemenu_args
+# start your launcher
+bindsym $mod+d          exec bemenu-run $bemenu_args
+
+# alt+tab switch workspaces
+bindsym $mod+Tab workspace back_and_forth
+
+# super+tab cycle workspaces
+bindsym $win+Tab workspace next
+
 #Window rules
 for_window [app_id="com.github.finefindus.eyedropper"] floating enable
+for_window [app_id="firefox" title="^Picture-in-Picture$"] \
+    floating enable, move position 840 600, sticky enable
 
 # Fixes
 exec dbus-sway-environment
