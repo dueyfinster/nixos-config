@@ -181,13 +181,14 @@ input "type:keyboard" {
 exec waybar &
 
 # Startup
+assign [app_id="firefox"] workspace number 1
 assign [app_id="terminal1"] workspace number 2
-assign [app_id="firefox"] workspace number 3
-assign [class="steam"] workspace number 1
+assign [app_id="codium-url-handler"] workspace number 4
 assign [class="spotify"] workspace number 6
+assign [class="steam"] workspace number 7
 
-exec wezterm --class "terminal1" &
-exec qutebrowser &
+exec wezterm start --class "terminal1" &
+# exec qutebrowser &
 exec codium --ozone-platform-hint=auto &
 
 set $bemenu_args -i -p ''
@@ -218,12 +219,12 @@ for_window [app_id="com.github.finefindus.eyedropper"] floating enable
 for_window [app_id="firefox" title="^Picture-in-Picture$"] \
     floating enable, move position 840 600, sticky enable
 for_window [app_id="firefox" title= "Extension: (Bitwarden Password Manager) - Bitwarden — Mozilla Firefox"] floating enable
+
 # Fixes
 exec dbus-sway-environment
 exec configure-gtk
 exec systemctl --user import-environment
 
 exec firefox &
-exec steam &
 
 include @sysconfdir@/sway/config.d/*
