@@ -11,6 +11,7 @@
         
 	#networking
 	./networking/networks.nix
+	./networking/samba.nix
 	
 	#wayland
 	./wayland/general.nix

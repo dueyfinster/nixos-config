@@ -1,2 +1,3 @@
 ./nixos/networking/networks.nix
 ./home-manager/config/bash-scripts/passwords.kbx
+smb-secrets
