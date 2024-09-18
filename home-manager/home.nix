@@ -14,13 +14,16 @@
 	./config/alacritty.nix
 
 	#Neovim
+	./config/email.nix
+
+	#Neovim
 	./config/neovim.nix
 
 	#Waybar
-  ./config/waybar.nix
+        ./config/waybar.nix
 
         #Yt-dlp
-  ./config/yt-dlp.nix
+        ./config/yt-dlp.nix
   ];
 
 
@@ -74,6 +77,9 @@
 
   # Control Media 
 	playerctl
+
+  #Cloud Sync
+	synology-drive-client
 
 	#Font
 	jetbrains-mono
