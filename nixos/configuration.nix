@@ -12,6 +12,9 @@
 	#networking
 	./networking/networks.nix
 	./networking/samba.nix
+
+  #usb
+	./usb/usb.nix
 	
 	#wayland
 	./wayland/general.nix
