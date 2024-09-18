@@ -12,7 +12,7 @@
     ];
 
     modules-left = [ "custom/logo" "sway/workspaces" "sway/mode" ];
-    modules-right = [ "custom/spotify" "sway/language" "cpu" "memory" "disk" "network" "battery" "clock"  ];
+    modules-right = [ "custom/spotify" "sway/language" "cpu" "memory" "network" "battery" "clock"  ];
     
     "custom/logo" = {
       format = "";
