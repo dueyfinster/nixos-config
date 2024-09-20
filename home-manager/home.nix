@@ -20,10 +20,11 @@
 	./config/neovim.nix
 
 	#Waybar
-        ./config/waybar.nix
+	./config/waybar.nix
 
-        #Yt-dlp
-        ./config/yt-dlp.nix
+	#Yt-dlp
+	./config/yt-dlp.nix
+
   ];
 
 
@@ -46,6 +47,8 @@
 	imv #image viewer
   nix-prefetch-github #get hash and head from github repo
   stow
+
+	starship
 
 	#Color palette
 	eyedropper
