@@ -9,4 +9,11 @@
         pull.rebase = false;
       };
     };
+
+    home.shellAliases = {
+      gc = "git commit -m";
+      gp = "git push";
+      gs = "git status";
+    };
+
 }

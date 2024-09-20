@@ -4,6 +4,9 @@
 	#Bat
 	./config/bat.nix
 
+	#Fzf
+	./config/fzf.nix
+
 	#Git
 	./config/git.nix
 
@@ -21,6 +24,9 @@
 
 	#Neovim
 	./config/neovim.nix
+
+	#Starship
+        ./config/starship.nix
 
 	#Waybar
 	./config/waybar.nix
@@ -51,7 +57,6 @@
   nix-prefetch-github #get hash and head from github repo
   stow
 
-	starship
 
 	#Color palette
 	eyedropper
