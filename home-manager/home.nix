@@ -1,6 +1,9 @@
 { config, pkgs, ... }:
 {
   imports = [
+	#Bat
+	./config/bat.nix
+
 	#Git
 	./config/git.nix
 
