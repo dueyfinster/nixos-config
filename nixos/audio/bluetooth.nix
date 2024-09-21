@@ -2,6 +2,7 @@
 {
 
   hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
 
   environment.etc = {
           "wireplumber/bluetooth.lua.d/51-bluez-config.lua".text = ''
