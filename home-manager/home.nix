@@ -55,6 +55,7 @@
 	cmatrix #!!!
 	imv #image viewer
   nix-prefetch-github #get hash and head from github repo
+	mosh
   stow
 
 
@@ -86,10 +87,13 @@
 	#Office suite
 	libreoffice
 
-  # Control Media 
+        # Control Media 
 	playerctl
 
-  #Cloud Sync
+        #Sonos Client
+	noson
+
+        #Cloud Sync
 	synology-drive-client
 
 	#Font
