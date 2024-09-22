@@ -44,6 +44,9 @@
 	# Zsh
 	./config/zsh.nix
 
+	# Zsh
+	./config/zoxide.nix
+
   ];
 
 
