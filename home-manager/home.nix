@@ -11,6 +11,9 @@
 	#Fzf
 	./config/fzf.nix
 
+	#Direnv
+	./config/direnv.nix
+
 	#Git
 	./config/git.nix
 
