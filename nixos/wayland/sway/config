@@ -229,6 +229,8 @@ for_window [app_id="com.github.finefindus.eyedropper"] floating enable
 for_window [app_id="firefox" title="^Picture-in-Picture$"] \
     floating enable, move position 840 600, sticky enable
 for_window [app_id="firefox" title= "Extension: (Bitwarden Password Manager) - Bitwarden — Mozilla Firefox"] floating enable
+for_window [class="Spotify"] move scratchpad
+bindsym $mod+Shift+m [class="Spotify"] scratchpad show
 
 # Fixes
 exec dbus-sway-environment
