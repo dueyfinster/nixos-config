@@ -1,67 +1,94 @@
-{config, pkgs, ...}:
+{ pkgs, config, lib, ... }:
+let
+  treesitterWithGrammars = (pkgs.vimPlugins.nvim-treesitter.withPlugins (p: [
+    p.bash
+    p.comment
+    p.css
+    p.dockerfile
+    p.elixir
+    p.fish
+    p.gitattributes
+    p.gitignore
+    p.go
+    p.gomod
+    p.gowork
+    p.hcl
+    p.html
+    p.javascript
+    p.jq
+    p.json5
+    p.json
+    p.lua
+    p.make
+    p.markdown
+    p.nix
+    p.python
+    p.ruby
+    p.rust
+    p.sql
+    p.toml
+    p.typescript
+    p.terraform
+    p.vim
+    p.xml
+    p.yaml
+  ]));
+
+  treesitter-parsers = pkgs.symlinkJoin {
+    name = "treesitter-parsers";
+    paths = treesitterWithGrammars.dependencies;
+  };
+
+in
 {
-  #Some useful keybinds
-  #$ go to end of the line
-  #0 go to start of the line
-  #shift + g go to bottom of the file
-  #g + g go to start of the file
-  #shift + up/down arrow scroll faster
-  programs.neovim.enable = true;
-
-  #Autocompletion
-  #ctrl + y to autocomplete
-  programs.neovim.coc.enable = true;
- 
-  programs.neovim.plugins = [
-    #Theme
-    { plugin = pkgs.vimPlugins.onehalf;
-      config = ''
-        set background=dark
-        colorscheme onehalfdark
-        let g:airline_theme='onehalfdark'
-        hi Normal guibg=NONE ctermbg=NONE
-        hi LineNr guibg=NONE ctermbg=NONE
-        hi SignColumn guibg=NONE ctermbg=NONE
-        hi EndOfBuffer guibg=NONE ctermbg=NONE
-        hi Visual cterm=none ctermbg=darkgrey ctermfg=white
-      '';
-    }
-
-    #File browser
-    #ctrl + b to open
-    #ctrl + w + w to switch focus
-    { plugin = pkgs.vimPlugins.nerdtree;
-      config = ''
-        nnoremap <silent> <C-b> :NERDTreeToggle<CR>
-        let g:NERDTreeShowHidden = 1
-        let g:NERDTreeMinimalUI = 1
-        let g:NERDTreeIgnore = []
-        let g:NERDTreeStatusline = ""
-        highlight NERDTreeCWD ctermfg=white
-        " Exit Vim if NERDTree is the only window remaining in the only tab.
-        autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-      '';
-    }
-
-    #Icons
-    pkgs.vimPlugins.vim-devicons
-    
-    #Language support
-    pkgs.vimPlugins.vim-nix
-    pkgs.vimPlugins.coc-python
-    pkgs.vimPlugins.coc-go
-    pkgs.vimPlugins.vim-javascript
-    pkgs.vimPlugins.coc-css
-    pkgs.vimPlugins.coc-emmet
-    pkgs.vimPlugins.coc-html
-    pkgs.vimPlugins.coc-json
+  home.packages = with pkgs; [
+    fd
+    fzf
+    ripgrep
+    gcc
+    gnumake
+    docker-ls
+    gopls
+    helm-ls
+    lua-language-server
+    nil # nix language server
+    nodePackages_latest.bash-language-server
+    nodePackages_latest.typescript-language-server
+    nodePackages_latest.vscode-html-languageserver-bin
+    nodePackages_latest.vscode-json-languageserver
+    pyright
+    stylua
+    yaml-language-server
   ];
 
-  programs.neovim.extraConfig = ''
-    set number
-    syntax on
-    set shiftwidth=2
-    set smarttab
-    set clipboard+=unnamedplus 
-  '';
+
+  programs.neovim = {
+    enable = true;
+    package = pkgs.neovim-unwrapped;
+    plugins = [
+      treesitterWithGrammars
+    ];
+    extraLuaConfig = ''
+
+    ${builtins.readFile ~/.dotfiles/nvim/.config/nvim/init.lua}
+    vim.opt.runtimepath:prepend("${treesitter-parsers}")
+    '';
+  };
+
+
+  # Treesitter is configured as a locally developed module in lazy.nvim
+  # we hardcode a symlink here so that we can refer to it in our lazy config
+  # SEE: https://github.com/Kidsan/nixos-config/blob/main/home/programs/neovim/default.nix
+  home.file."./.local/share/nvim/nix/nvim-treesitter/" = {
+    recursive = true;
+    source = treesitterWithGrammars;
+  };
+
+  home.file."./.config/nvim/lua" = {
+    source = config.lib.file.mkOutOfStoreSymlink ~/.dotfiles/nvim/.config/nvim/lua;
+    recursive = true;
+  };
+  home.file."./.config/nvim/lazy-lock.json" = {
+    source = config.lib.file.mkOutOfStoreSymlink ~/.dotfiles/nvim/.config/nvim/lazy-lock.json;
+  };
 }
