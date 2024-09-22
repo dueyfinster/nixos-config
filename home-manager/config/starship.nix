@@ -5,5 +5,6 @@
       enableBashIntegration = true;
       enableZshIntegration = true;
       enableFishIntegration = true;
+      #settings = pkgs.lib.importTOML ./starship.toml;
     };
 }
