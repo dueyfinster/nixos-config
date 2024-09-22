@@ -60,6 +60,8 @@
 	chromium
 	qutebrowser
 
+  devenv
+	
 	discord
 
 	#CLI program
@@ -69,6 +71,7 @@
 	imv #image viewer
   nix-prefetch-github #get hash and head from github repo
 	mosh
+	docker
   stow
 
 
