@@ -60,6 +60,23 @@
     nssmdns4 = true;
     openFirewall = true;
   };
+
+  virtualisation.docker = {
+    enable = true;
+    # start dockerd on boot.
+    # This is required for containers which are created with the `--restart=always` flag to work.
+    enableOnBoot = true;
+  };
+
+  services.openssh = {
+    enable = true;
+    settings = {
+      X11Forwarding = true;
+      PermitRootLogin = "prohibit-password"; # disable root login with password
+      PasswordAuthentication = false; # disable password login
+    };
+    openFirewall = true;
+  };
  
   system.stateVersion = "24.05";
 }
