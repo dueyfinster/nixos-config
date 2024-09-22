@@ -4,6 +4,10 @@
 	#Bat
 	./config/bat.nix
 
+
+  #Yt-dlp
+	./config/fish.nix
+
 	#Fzf
 	./config/fzf.nix
 
