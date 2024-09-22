@@ -34,6 +34,9 @@
 	#Yt-dlp
 	./config/yt-dlp.nix
 
+	# Zsh
+	./config/zsh.nix
+
   ];
 
 
