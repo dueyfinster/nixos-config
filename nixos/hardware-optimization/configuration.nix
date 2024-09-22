@@ -58,11 +58,7 @@
     options = "caps:escape";
   };
 
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
-  };
+  hardware.graphics.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.ngrogan = {
@@ -91,9 +87,6 @@
   # };
 
   # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
