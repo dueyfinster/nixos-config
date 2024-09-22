@@ -13,6 +13,12 @@
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
+  # TODO: Can enable to test
+  #oot.kernelParams = [
+  #  "video=eDP-1:2880x1920@120"
+  #  "video=DP-2:1920x1080@60"
+  #];
+
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/27f553f3-5e5a-4677-8ecb-847d364f52fd";
       fsType = "ext4";
