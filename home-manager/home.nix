@@ -111,6 +111,7 @@
 
         #Cloud Sync
 	synology-drive-client
+	tailscale
 
 	#Font
 	jetbrains-mono
