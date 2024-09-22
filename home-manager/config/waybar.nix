@@ -12,7 +12,7 @@
     ];
 
     modules-left = [ "custom/logo" "sway/workspaces" "sway/mode" ];
-    modules-right = [ "custom/spotify" "sway/language" "cpu" "memory" "network" "battery" "clock"  ];
+    modules-right = [ "sway/language" "cpu" "memory" "network" "pulseaudio" "battery" "clock"  ];
     
     "custom/logo" = {
       format = "";
@@ -67,7 +67,7 @@
         path = "/";
       };
 
-       battery = {
+       "battery" = {
               interval = 1;
               states = {
                 warning = 30;
@@ -78,6 +78,15 @@
               format-icons = [ "" "" "" "" "" ];
               max-length = 25;
             };
+
+    "pulseaudio" = {
+        scroll-step = "1";
+        format = "{volume}% {icon}";
+        format-muted = " ";
+        format-icons = {
+            default = ["" "" ""];
+        };
+    };
 
     "network" = {
   	    format = "{ifname}";
@@ -144,6 +153,11 @@
 
   #language {
     margin-right: 7px;		
+  }
+
+  #pulseaudio {
+    margin-left: 7px;
+    margin-right: 12px;
   }
 
   #cpu {
