@@ -2,27 +2,10 @@
 {
   imports =
     [
+      <nixos-hardware/framework/13-inch/7040-amd>
+      ./hardware-configuration.nix
       inputs.home-manager.nixosModules.default
-	#hardware optimization
-	../../modules/nixos/hardware-optimization/configuration.nix
-
-	#audio
-	../../modules/nixos/audio/general.nix
-	../../modules/nixos/audio/bluetooth.nix
-        
-	#networking
-	../../modules/nixos/networking/networks.nix
-	../../modules/nixos/networking/samba.nix
-
-  ../../modules/nixos/user.nix
-
-  #usb
-	../../modules/nixos/usb/usb.nix
-	
-	#wayland
-	../../modules/nixos/wayland/general.nix
-	../../modules/nixos/wayland/window-manager.nix
-	../../modules/nixos/wayland/login-manager.nix
+	    ../../modules/nixos
     ];
 
 
@@ -70,12 +53,6 @@
   #};
 
   #services.openssh.enable = true;
-  services.printing.enable = true;    
-    services.avahi = {
-    enable = true;
-    nssmdns4 = true;
-    openFirewall = true;
-  };
 
   virtualisation.docker = {
     enable = true;
@@ -84,17 +61,44 @@
     enableOnBoot = true;
   };
 
-  services.openssh = {
-    enable = true;
-    settings = {
-      X11Forwarding = true;
-      PermitRootLogin = "prohibit-password"; # disable root login with password
-      PasswordAuthentication = false; # disable password login
-    };
-    openFirewall = true;
-  };
-
   services.tailscale.enable = true;
  
-  system.stateVersion = "24.05";
+   # Firmware Uodater
+  services.fwupd.enable = true;
+
+  boot.initrd.luks.devices."luks-c94a6166-2181-45a8-9af9-d28ec733337c".device = "/dev/disk/by-uuid/c94a6166-2181-45a8-9af9-d28ec733337c";
+  networking.hostName = "compage"; # Define your hostname.
+  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+
+  # Recommended for AMD 7040
+  services.power-profiles-daemon.enable = true;
+
+  # Configure network proxy if necessary
+  # networking.proxy.default = "http://user:password@proxy:port/";
+  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+
+  # Some programs need SUID wrappers, can be configured further or are
+  # started in user sessions.
+  # programs.mtr.enable = true;
+  # programs.gnupg.agent = {
+  #   enable = true;
+  #   enableSSHSupport = true;
+  # };
+
+  # List services that you want to enable:
+
+  # Open ports in the firewall.
+  # networking.firewall.allowedTCPPorts = [ ... ];
+  # networking.firewall.allowedUDPPorts = [ ... ];
+  # Or disable the firewall altogether.
+  # networking.firewall.enable = false;
+
+  # This value determines the NixOS release from which the default
+  # settings for stateful data, like file locations and database versions
+  # on your system were taken. It‘s perfectly fine and recommended to leave
+  # this value at the release version of the first install of this system.
+  # Before changing this value read the documentation for this option
+  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
+  system.stateVersion = "24.05"; # Did you read the comment?
+
 }

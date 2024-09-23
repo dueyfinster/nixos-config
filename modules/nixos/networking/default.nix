@@ -1,5 +1,9 @@
 {config, pkgs, ...}:
 {
+
+  # Enable networking
+  networking.networkmanager.enable = true;
+  
   networking.hostName = "compage";
 
   networking.firewall.enable = false;
