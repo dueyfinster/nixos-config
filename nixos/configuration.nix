@@ -1,7 +1,8 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, lib, ... }:
 {
   imports =
     [
+      inputs.home-manager.nixosModules.default
 	#hardware optimization
 	./hardware-optimization/configuration.nix
 
@@ -13,6 +14,8 @@
 	./networking/networks.nix
 	./networking/samba.nix
 
+  ./user.nix
+
   #usb
 	./usb/usb.nix
 	
@@ -21,6 +24,10 @@
 	./wayland/window-manager.nix
 	./wayland/login-manager.nix
     ];
+
+
+  user.enable = true;
+  #user.userName = "egronei";
 
   environment.sessionVariables = rec {
     XDG_CONFIG_HOME = "\${HOME}/.config";
@@ -34,6 +41,15 @@
       extra-substituters = https://devenv.cachix.org;
       extra-trusted-public-keys = devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw=;
   '';
+
+  nixpkgs.config.allowUnfree = true;
+
+  home-manager = {
+    extraSpecialArgs = { inherit inputs; };
+    users = {
+      "ngrogan" = import ../home-manager/home.nix;
+    };   
+   };
   
   environment.systemPackages = with pkgs; [
     vim

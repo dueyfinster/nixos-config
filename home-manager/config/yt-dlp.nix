@@ -1,15 +1,6 @@
-{ pkgs, config, ... }:
-
-let
-
-  pkgsUnstable = import <nixpkgs-unstable> {};
-
-in
-
+{ pkgs, inputs, ... }:
 {
-  home.packages = [
-    pkgsUnstable.yt-dlp
+  home.packages = with inputs.nixpkgs-unstable; [
+    pkgs.yt-dlp
   ];
-
-  # …
 }

@@ -1,5 +1,9 @@
 # NixOS Config
 
+Rebuild with Flakes:
+```
+sudo nixos-rebuild switch --show-trace --impure --flake .#default
+```
 <img src=preview.png/>
 
 <p align=center> <b>Minimal Sway NixOS rice with full silent boot</b> </p>

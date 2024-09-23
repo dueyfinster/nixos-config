@@ -60,14 +60,6 @@
 
   hardware.graphics.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.ngrogan = {
-    isNormalUser = true;
-    description = "Neil Grogan";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [];
-  };
-
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 

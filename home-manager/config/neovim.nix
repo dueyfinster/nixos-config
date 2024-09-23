@@ -70,7 +70,7 @@ in
     ];
     extraLuaConfig = ''
 
-    ${builtins.readFile ~/.dotfiles/nvim/.config/nvim/init.lua}
+    ${builtins.readFile /home/ngrogan/.dotfiles/nvim/.config/nvim/init.lua}
     vim.opt.runtimepath:prepend("${treesitter-parsers}")
     '';
   };
