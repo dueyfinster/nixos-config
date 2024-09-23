@@ -23,12 +23,23 @@
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, cachix, devenv, nixpkgs-unstable, nixos-hardware, ... }: {
-    nixosConfigurations.default = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs;};
-      modules = [
-        ./nixos/configuration.nix
-        # inputs.home-manager.nixosModules.default
-      ];
+    nixosConfigurations = {
+      compage = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        modules = [
+          ./hosts/compage/configuration.nix
+        ];
+      };
+
+      firanta = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        modules = [
+          ./nixos/configuration.nix
+          # inputs.home-manager.nixosModules.default
+        ];
+      };
     };
+
+    darwinConfigurations = {};
   };
 }

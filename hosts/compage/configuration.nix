@@ -4,25 +4,25 @@
     [
       inputs.home-manager.nixosModules.default
 	#hardware optimization
-	./hardware-optimization/configuration.nix
+	../../lib/nixos/hardware-optimization/configuration.nix
 
 	#audio
-	./audio/general.nix
-	./audio/bluetooth.nix
+	../../lib/nixos/audio/general.nix
+	../../lib/nixos/audio/bluetooth.nix
         
 	#networking
-	./networking/networks.nix
-	./networking/samba.nix
+	../../lib/nixos/networking/networks.nix
+	../../lib/nixos/networking/samba.nix
 
-  ./user.nix
+  ../../lib/nixos/user.nix
 
   #usb
-	./usb/usb.nix
+	../../lib/nixos/usb/usb.nix
 	
 	#wayland
-	./wayland/general.nix
-	./wayland/window-manager.nix
-	./wayland/login-manager.nix
+	../../lib/nixos/wayland/general.nix
+	../../lib/nixos/wayland/window-manager.nix
+	../../lib/nixos/wayland/login-manager.nix
     ];
 
 
@@ -47,7 +47,7 @@
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
     users = {
-      "ngrogan" = import ../home-manager/home.nix;
+      "ngrogan" = import ./home.nix;
     };   
    };
   

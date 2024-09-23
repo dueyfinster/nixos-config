@@ -2,50 +2,50 @@
 {
   imports = [
 	#Bat
-	./config/bat.nix
+	../../lib/home-manager/bat.nix
 
 
-  #Yt-dlp
-	./config/fish.nix
+  #Fish
+	../../lib/home-manager/fish.nix
 
 	#Fzf
-	./config/fzf.nix
+	../../lib/home-manager/fzf.nix
 
 	#Direnv
-	./config/direnv.nix
+	../../lib/home-manager/direnv.nix
 
 	#Git
-	./config/git.nix
+	../../lib/home-manager/git.nix
 
 	#Theme (cursor theme, gtk theme, ... )
-	./config/theme.nix
+	../../lib/home-manager/theme.nix
 	
 	#Bash
-	./config/bashrc.nix
+	../../lib/home-manager/bashrc.nix
 	
 	#Alacritty
-	./config/alacritty.nix
+	../../lib/home-manager/alacritty.nix
 
 	#Neovim
-	./config/email.nix
+	../../lib/home-manager/email.nix
 
 	#Neovim
-	./config/neovim.nix
+	../../lib/home-manager/neovim.nix
 
 	#Starship
-        ./config/starship.nix
+        ../../lib/home-manager/starship.nix
 
 	#Waybar
-	./config/waybar.nix
+	../../lib/home-manager/waybar.nix
 
 	#Yt-dlp
-	./config/yt-dlp.nix
+	../../lib/home-manager/yt-dlp.nix
 
 	# Zsh
-	./config/zsh.nix
+	../../lib/home-manager/zsh.nix
 
 	# Zsh
-	./config/zoxide.nix
+	../../lib/home-manager/zoxide.nix
 
   ];
 
