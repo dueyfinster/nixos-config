@@ -25,7 +25,7 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, cachix, devenv, nixpkgs-unstable, nixos-hardware, ... }: {
+  outputs = inputs@{ self, nixpkgs, home-manager, cachix, devenv, nixpkgs-unstable, nixos-hardware, nix-darwin, ... }: {
     nixosConfigurations = {
       compage = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
