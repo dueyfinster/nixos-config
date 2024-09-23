@@ -4,25 +4,25 @@
     [
       inputs.home-manager.nixosModules.default
 	#hardware optimization
-	../../lib/nixos/hardware-optimization/configuration.nix
+	../../modules/nixos/hardware-optimization/configuration.nix
 
 	#audio
-	../../lib/nixos/audio/general.nix
-	../../lib/nixos/audio/bluetooth.nix
+	../../modules/nixos/audio/general.nix
+	../../modules/nixos/audio/bluetooth.nix
         
 	#networking
-	../../lib/nixos/networking/networks.nix
-	../../lib/nixos/networking/samba.nix
+	../../modules/nixos/networking/networks.nix
+	../../modules/nixos/networking/samba.nix
 
-  ../../lib/nixos/user.nix
+  ../../modules/nixos/user.nix
 
   #usb
-	../../lib/nixos/usb/usb.nix
+	../../modules/nixos/usb/usb.nix
 	
 	#wayland
-	../../lib/nixos/wayland/general.nix
-	../../lib/nixos/wayland/window-manager.nix
-	../../lib/nixos/wayland/login-manager.nix
+	../../modules/nixos/wayland/general.nix
+	../../modules/nixos/wayland/window-manager.nix
+	../../modules/nixos/wayland/login-manager.nix
     ];
 
 

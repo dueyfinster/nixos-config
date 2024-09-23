@@ -2,50 +2,50 @@
 {
   imports = [
 	#Bat
-	../../lib/home-manager/bat.nix
+	../../modules/home-manager/bat.nix
 
 
   #Fish
-	../../lib/home-manager/fish.nix
+	../../modules/home-manager/fish.nix
 
 	#Fzf
-	../../lib/home-manager/fzf.nix
+	../../modules/home-manager/fzf.nix
 
 	#Direnv
-	../../lib/home-manager/direnv.nix
+	../../modules/home-manager/direnv.nix
 
 	#Git
-	../../lib/home-manager/git.nix
+	../../modules/home-manager/git.nix
 
 	#Theme (cursor theme, gtk theme, ... )
-	../../lib/home-manager/theme.nix
+	../../modules/home-manager/theme.nix
 	
 	#Bash
-	../../lib/home-manager/bashrc.nix
+	../../modules/home-manager/bashrc.nix
 	
 	#Alacritty
-	../../lib/home-manager/alacritty.nix
+	../../modules/home-manager/alacritty.nix
 
 	#Neovim
-	../../lib/home-manager/email.nix
+	../../modules/home-manager/email.nix
 
 	#Neovim
-	../../lib/home-manager/neovim.nix
+	../../modules/home-manager/neovim.nix
 
 	#Starship
-        ../../lib/home-manager/starship.nix
+        ../../modules/home-manager/starship.nix
 
 	#Waybar
-	../../lib/home-manager/waybar.nix
+	../../modules/home-manager/waybar.nix
 
 	#Yt-dlp
-	../../lib/home-manager/yt-dlp.nix
+	../../modules/home-manager/yt-dlp.nix
 
 	# Zsh
-	../../lib/home-manager/zsh.nix
+	../../modules/home-manager/zsh.nix
 
 	# Zsh
-	../../lib/home-manager/zoxide.nix
+	../../modules/home-manager/zoxide.nix
 
   ];
 
