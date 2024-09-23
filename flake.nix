@@ -37,12 +37,22 @@
       firanta = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = [
-          ./nixos/configuration.nix
+          home-manager.nixosModules.default
+          ./hosts/firanta/home.nix
           # inputs.home-manager.nixosModules.default
         ];
       };
     };
 
-    darwinConfigurations = {};
+    darwinConfigurations = {
+      work = nix-darwin.lib.darwinSystem {
+        specialArgs = {inherit inputs;};
+        modules = [
+          home-manager.darwinModules.home-manager
+          ./hosts/work-mba/home.nix
+        ];
+      };
+    
+    };
   };
 }
