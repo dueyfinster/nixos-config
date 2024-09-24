@@ -45,11 +45,12 @@
     };
 
     darwinConfigurations = {
-      work = nix-darwin.lib.darwinSystem {
+      EMB-2P2T1PXX = nix-darwin.lib.darwinSystem {
+        system = "aarch64-darwin";
         specialArgs = {inherit inputs;};
         modules = [
           home-manager.darwinModules.home-manager
-          ./hosts/work-mba/home.nix
+          ./hosts/EMB-2P2T1PXX
         ];
       };
     
