@@ -6,15 +6,15 @@
     ../../modules/darwin
   ];
 
-  users.users.egronei = {
-    name = "egronei";
-    home = "/Users/egronei";
+  users.users.ngrogan = {
+    name = "ngrogan";
+    home = "/Users/ngrogan";
   };
   
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
     users = {
-      "egronei" = import ./home.nix;
+      "ngrogan" = import ./home.nix;
     };   
    };
 }

@@ -61,6 +61,15 @@
           ./hosts/EMB-2P2T1PXX
         ];
       };
+
+      neils-imac-pro = nix-darwin.lib.darwinSystem {
+        system = "X86_64-darwin";
+        specialArgs = {inherit inputs;};
+        modules = [
+          home-manager.darwinModules.home-manager
+          ./hosts/neils-imac-pro
+        ];
+      };
     
     };
   };
