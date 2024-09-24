@@ -27,9 +27,13 @@
       url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    home-manager-unstable = {
+      url = "github:nix-community/home-manager/master";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, cachix, devenv, nixpkgs-unstable, nixos-hardware, nix-darwin, ... }: {
+  outputs = inputs@{ self, nixpkgs, home-manager, home-manager-unstable, cachix, devenv, nixpkgs-unstable, nixos-hardware, nix-darwin, ... }: {
     nixosConfigurations = {
       compage = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
