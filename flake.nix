@@ -38,6 +38,7 @@
       compage = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = [
+          home-manager.nixosModules.default
           ./hosts/compage/configuration.nix
         ];
       };
@@ -47,7 +48,6 @@
         modules = [
           home-manager.nixosModules.default
           ./hosts/firanta/home.nix
-          # inputs.home-manager.nixosModules.default
         ];
       };
     };
