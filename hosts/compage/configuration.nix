@@ -18,7 +18,7 @@
   };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  
+
   nix.extraOptions = ''
       trusted-users = root ngrogan
       extra-substituters = https://devenv.cachix.org;
@@ -31,12 +31,14 @@
     extraSpecialArgs = { inherit inputs; };
     users = {
       "ngrogan" = import ./home.nix;
-    };   
+    };
    };
-  
+
   environment.systemPackages = with pkgs; [
     vim
     neovim
+    nodejs_22
+    unzip
     firefox
     steam
     bat
@@ -45,7 +47,7 @@
     tmux
     freshfetch
    ];
-  
+
   #programs.mtr.enable = true;
   #programs.gnupg.agent = {
   #  enable = true;
@@ -62,7 +64,7 @@
   };
 
   services.tailscale.enable = true;
- 
+
    # Firmware Uodater
   services.fwupd.enable = true;
 
