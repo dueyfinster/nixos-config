@@ -2,7 +2,7 @@
 {
   imports =
     [
-      <nixos-hardware/framework/13-inch/7040-amd>
+      inputs.nixos-hardware.nixosModules.framework-13-7040-amd
       ./hardware-configuration.nix
       inputs.home-manager.nixosModules.default
 	    ../../modules/nixos

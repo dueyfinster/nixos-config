@@ -85,10 +85,7 @@ in
   };
 
   home.file."./.config/nvim/lua" = {
-    source = config.lib.file.mkOutOfStoreSymlink ~/.dotfiles/nvim/.config/nvim/lua;
+    source = config.lib.file.mkOutOfStoreSymlink /home/ngrogan/.dotfiles/nvim/.config/nvim/lua;
     recursive = true;
-  };
-  home.file."./.config/nvim/lazy-lock.json" = {
-    source = config.lib.file.mkOutOfStoreSymlink ~/.dotfiles/nvim/.config/nvim/lazy-lock.json;
   };
 }
