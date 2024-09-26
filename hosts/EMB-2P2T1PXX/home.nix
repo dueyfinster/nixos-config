@@ -1,6 +1,7 @@
 { config, pkgs, inputs, lib, ... }:
 {
   imports = [
+    ../../modules/home-manager/zsh.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -37,6 +38,7 @@
     fzf
     jq
     kubecolor
+    zoxide
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -69,15 +71,10 @@
   };
 
   programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    autosuggestion.enable = true;
-    syntaxHighlighting.enable = true;
-
-    initExtra = ''
-      export PATH="/nix/var/nix/profiles/default/bin/:/run/current-system/sw/bin/:$PATH"
-      source <(kubectl completion zsh)
-    '';
+    #initExtra = ''
+    #  export PATH="/nix/var/nix/profiles/default/bin/:/run/current-system/sw/bin/:$PATH"
+    #  source <(kubectl completion zsh)
+    #'';
 
     shellAliases = {
       cat = "bat";
@@ -86,10 +83,6 @@
       gs = "git status";
       gp = "git push";
       update = "sudo darwin-rebuild switch --flake ~/.dotfiles/nix/.config/nix";
-    };
-    history = {
-      size = 10000;
-      path = "${config.xdg.dataHome}/zsh/history";
     };
     oh-my-zsh = {
       enable = true;

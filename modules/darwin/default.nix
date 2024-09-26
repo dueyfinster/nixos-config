@@ -1,4 +1,4 @@
-{ pkgs, lib, inputs, config, username, systemConfigs, ... }: {
+{ pkgs, lib, inputs, config, username, ... }: {
       # List packages installed in system profile. To search by name, run:
       # $ nix-env -qaP | grep wget
       environment.systemPackages = with pkgs; [
@@ -35,20 +35,26 @@
         ];
         casks = [
           "anki"
-          "hazel"
+          #"bartender"
+          "bunch"
           "drawio"
           "docker"
+          "emacs"
           "firefox@developer-edition"
+          "hazel"
+          #"iterm2"
+          "karabiner-elements"
           "moom"
-          #"vscode"
+          "plex"
           "sonos"
           "spotify"
+          "sublime-text"
+          "visual-studio-code"
           "wezterm"
-        #] ++ lib.optionals (inputs.self.darwinConfigurations.hostname != "EMB-2P2T1PXX") [
+        #] ++ lib.optionals (hostname != "EMB-2P2T1PXX") [
         #  "crossover"
         #  "steam"
-        #] ++ lib.optionals (inputs.self.darwinConfigurations.hostname == "EMB-2P2T1PXX") [
-        #  "keyboard-maestro"
+        #] ++ lib.optionals (hostname == "EMB-2P2T1PXX") [
         ];
         masApps = {
           "Parcel" = 639968404;
@@ -57,10 +63,6 @@
           "Xcode"  = 497799835;
         #} // lib.optionalAttrs (inputs.self.darwinConfigurations.hostname != "EMB-2P2T1PXX") {
         #  "Keynote" = 409183694;
-        #} // lib.optionalAttrs (inputs.self.darwinConfigurations.hostname == "EMB-2P2T1PXX") {
-        #  "Microsoft Excel"       = 462058435;
-        #  "Microsoft PowerPoint"  = 462062816;
-        #  "Microsoft Word"        = 462054704;
         };
       };
 
