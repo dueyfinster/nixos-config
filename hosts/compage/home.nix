@@ -19,10 +19,10 @@
 
 	#Theme (cursor theme, gtk theme, ... )
 	../../modules/home-manager/theme.nix
-	
+
 	#Bash
 	../../modules/home-manager/bashrc.nix
-	
+
 	#Alacritty
 	../../modules/home-manager/alacritty.nix
 
@@ -41,6 +41,9 @@
 	#Yt-dlp
 	../../modules/home-manager/yt-dlp.nix
 
+	# Wine
+	../../modules/home-manager/wine.nix
+
 	# Zsh
 	../../modules/home-manager/zsh.nix
 
@@ -50,7 +53,7 @@
   ];
 
 
-  
+
   home.packages = with pkgs; [
 	#Text editor
 	vscodium
@@ -61,7 +64,7 @@
 	qutebrowser
 
   devenv
-	
+
 	discord
 
 	#CLI program
@@ -77,13 +80,13 @@
 
 	#Color palette
 	eyedropper
-	
+
 	#App launcher
 	bemenu
 
 	#File browser
 	xfce.thunar
-	
+
 	#Video viewer
 	haruna
 
@@ -103,7 +106,7 @@
 	#Office suite
 	libreoffice
 
-        # Control Media 
+        # Control Media
 	playerctl
 
         #Sonos Client
@@ -133,6 +136,8 @@
     #   org.gradle.daemon.idletimeout=3600000
     # '';
   };
+
+  programs.wine.enable = true;
 
   home.username = "ngrogan";
   home.homeDirectory = "/home/ngrogan";

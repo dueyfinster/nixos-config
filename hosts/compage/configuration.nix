@@ -28,6 +28,8 @@
   nixpkgs.config.allowUnfree = true;
 
   home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
     extraSpecialArgs = { inherit inputs; };
     users = {
       "ngrogan" = import ./home.nix;

@@ -74,7 +74,7 @@ output * bg /home/ngrogan/nixos-config/wallpaper.png fill
     bindsym $mod+Shift+Up move up
     bindsym $mod+Shift+Right move right
 
-# Workspaces:    
+# Workspaces:
 # Switch to workspace
 bindsym $mod+1 workspace number 1
 bindsym $mod+2 workspace number 2
@@ -136,14 +136,14 @@ bindsym XF86AudioMedia exec $browser $url_focus
 bindsym Shift+XF86AudioMedia exec $browser $url_manual
 
 # Git token (paste it into "")
-bindsym $mod+g exec wl-copy "" 
+bindsym $mod+g exec wl-copy ""
 
 # Layout stuff:
     # Split verticaly =
     bindsym $mod+v splitv
 
     # Split horizontaly ||
-    #bindsym $mod+h splith
+#    bindsym $mod+h splith
 
     # Make the current focus fullscreen
     bindsym $mod+f fullscreen
