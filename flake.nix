@@ -38,20 +38,6 @@
         ];
       };
 
-      firanta = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
-        modules = [
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.jdoe = import ./hosts/firanta/home.nix;
-
-            # Optionally, use home-manager.extraSpecialArgs to pass
-            # arguments to home.nix
-          }
-        ];
-      };
 
       # For future WSL config
       ubuntu = nixpkgs.lib.nixosSystem {
@@ -82,6 +68,18 @@
         modules = [
           home-manager.darwinModules.home-manager
           ./hosts/neils-imac-pro
+        ];
+      };
+
+    };
+
+    homeConfigurations = {
+
+      "ngrogan" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        extraSpecialArgs = {inherit inputs;};
+        modules = [
+            ./hosts/firanta/home.nix
         ];
       };
 
