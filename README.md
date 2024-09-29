@@ -1,12 +1,18 @@
 # NixOS Config
 
-Rebuild with Flakes:
+Rebuild on NixOS:
 ```
 sudo nixos-rebuild switch --show-trace --impure --flake .#default
 ```
-<img src=preview.png/>
 
-<p align=center> <b>Minimal Sway NixOS rice with full silent boot</b> </p>
+Rebuild with home-manager on other Linux:
+```
+nix run home-manager -- switch --flake .
+```
+
+Rebuild on darwin:
+```
+```
 
 ## Installation
 Install nixos with this guide (make sure to use systemd boot) <br/>

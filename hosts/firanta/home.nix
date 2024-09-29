@@ -1,9 +1,10 @@
 { inputs, pkgs, config, ... }:
 
 {
-    #imports = [
-    #  ./todo
-    #];
+  imports = [
+	#Bat
+	../../modules/home-manager/bat.nix
+  ];
 
     # TODO
   home.username = "ngrogan";
