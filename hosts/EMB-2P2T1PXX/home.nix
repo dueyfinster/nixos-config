@@ -34,10 +34,11 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-    kubectl
     fzf
-    jq
     kubecolor
+    kubectl
+    jq
+    ripgrep
     zoxide
   ];
 

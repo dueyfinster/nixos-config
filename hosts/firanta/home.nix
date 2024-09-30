@@ -9,6 +9,7 @@
   home.packages = with pkgs; [
     direnv
     cmatrix #!!!
+    ripgrep
     stow
   ];
 
