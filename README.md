@@ -12,6 +12,7 @@ nix run home-manager -- switch --flake .
 
 Rebuild on darwin:
 ```
+darwin-rebuild switch --flake .
 ```
 
 ## Installation
