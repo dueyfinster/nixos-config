@@ -6,6 +6,7 @@
       ./bluetooth
       ./boot
       ./locale
+      ./kde-connect.nix
       ./networking
       ./printing
       ./samba
