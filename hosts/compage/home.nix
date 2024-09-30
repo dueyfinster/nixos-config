@@ -1,6 +1,10 @@
 { config, pkgs, inputs, lib, ... }:
 {
   imports = [
+	
+	  	# Default
+	  ../../modules/home-manager
+	
 	#Bat
 	../../modules/home-manager/bat.nix
 
@@ -40,9 +44,6 @@
 
 	#Yt-dlp
 	../../modules/home-manager/yt-dlp.nix
-
-	# Wine
-	../../modules/home-manager/wine.nix
 
 	# Zsh
 	../../modules/home-manager/zsh.nix
@@ -138,6 +139,7 @@
   };
 
   programs.wine.enable = true;
+	programs.thonny.enable = true;
 
   home.username = "ngrogan";
   home.homeDirectory = "/home/ngrogan";
