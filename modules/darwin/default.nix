@@ -17,6 +17,8 @@
         ghidra-bin
       ]);
 
+      programs.zsh.enable = true;
+
        homebrew = {
         enable = true;
         global = {
