@@ -1,5 +1,10 @@
-{ config, pkgs, inputs, lib, ... }:
 {
+  config,
+  pkgs,
+  inputs,
+  lib,
+  ...
+}: {
   imports = [
     ../../modules/home-manager/zsh.nix
     ../../modules/home-manager
@@ -88,7 +93,7 @@
     };
     oh-my-zsh = {
       enable = true;
-      plugins = [ "docker" "docker-compose" "git" "helm" "kubectl" ];
+      plugins = ["docker" "docker-compose" "git" "helm" "kubectl"];
       theme = "robbyrussell";
     };
   };

@@ -1,6 +1,10 @@
-{ pkgs, config, lib, ... }:
-let
-  treesitterWithGrammars = (pkgs.vimPlugins.nvim-treesitter.withPlugins (p: [
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}: let
+  treesitterWithGrammars = pkgs.vimPlugins.nvim-treesitter.withPlugins (p: [
     p.bash
     p.comment
     p.css
@@ -32,15 +36,13 @@ let
     p.vim
     p.xml
     p.yaml
-  ]));
+  ]);
 
   treesitter-parsers = pkgs.symlinkJoin {
     name = "treesitter-parsers";
     paths = treesitterWithGrammars.dependencies;
   };
-
-in
-{
+in {
   home.packages = with pkgs; [
     fd
     fzf
@@ -61,7 +63,6 @@ in
     yaml-language-server
   ];
 
-
   programs.neovim = {
     enable = true;
     package = pkgs.neovim-unwrapped;
@@ -70,11 +71,10 @@ in
     ];
     extraLuaConfig = ''
 
-    ${builtins.readFile /home/ngrogan/.dotfiles/nvim/.config/nvim/init.lua}
-    vim.opt.runtimepath:prepend("${treesitter-parsers}")
+      ${builtins.readFile /home/ngrogan/.dotfiles/nvim/.config/nvim/init.lua}
+      vim.opt.runtimepath:prepend("${treesitter-parsers}")
     '';
   };
-
 
   # Treesitter is configured as a locally developed module in lazy.nvim
   # we hardcode a symlink here so that we can refer to it in our lazy config

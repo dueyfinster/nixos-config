@@ -1,9 +1,12 @@
-{ inputs, pkgs, config, ... }:
-
 {
+  inputs,
+  pkgs,
+  config,
+  ...
+}: {
   imports = [
-	#Bat
-	../../modules/home-manager/bat.nix
+    #Bat
+    ../../modules/home-manager/bat.nix
   ];
 
   home.packages = with pkgs; [

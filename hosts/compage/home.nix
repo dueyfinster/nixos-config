@@ -1,131 +1,130 @@
-{ config, pkgs, inputs, lib, ... }:
 {
+  config,
+  pkgs,
+  inputs,
+  lib,
+  ...
+}: {
   imports = [
-	
-	  	# Default
-	  ../../modules/home-manager
-	
-	#Bat
-	../../modules/home-manager/bat.nix
+    # Default
+    ../../modules/home-manager
 
+    #Bat
+    ../../modules/home-manager/bat.nix
 
-  #Fish
-	../../modules/home-manager/fish.nix
+    #Fish
+    ../../modules/home-manager/fish.nix
 
-	#Fzf
-	../../modules/home-manager/fzf.nix
+    #Fzf
+    ../../modules/home-manager/fzf.nix
 
-	#Direnv
-	../../modules/home-manager/direnv.nix
+    #Direnv
+    ../../modules/home-manager/direnv.nix
 
-	#Git
-	../../modules/home-manager/git.nix
+    #Git
+    ../../modules/home-manager/git.nix
 
-	#Theme (cursor theme, gtk theme, ... )
-	../../modules/home-manager/theme.nix
+    #Theme (cursor theme, gtk theme, ... )
+    ../../modules/home-manager/theme.nix
 
-	#Bash
-	../../modules/home-manager/bashrc.nix
+    #Bash
+    ../../modules/home-manager/bashrc.nix
 
-	#Alacritty
-	../../modules/home-manager/alacritty.nix
+    #Alacritty
+    ../../modules/home-manager/alacritty.nix
 
-	#Neovim
-	../../modules/home-manager/email.nix
+    #Neovim
+    ../../modules/home-manager/email.nix
 
-	#Neovim
-	../../modules/home-manager/neovim.nix
+    #Neovim
+    ../../modules/home-manager/neovim.nix
 
-	#Starship
-        ../../modules/home-manager/starship.nix
+    #Starship
+    ../../modules/home-manager/starship.nix
 
-	#Waybar
-	../../modules/home-manager/waybar.nix
+    #Waybar
+    ../../modules/home-manager/waybar.nix
 
-	#Yt-dlp
-	../../modules/home-manager/yt-dlp.nix
+    #Yt-dlp
+    ../../modules/home-manager/yt-dlp.nix
 
-	# Zsh
-	../../modules/home-manager/zsh.nix
+    # Zsh
+    ../../modules/home-manager/zsh.nix
 
-	# Zsh
-	../../modules/home-manager/zoxide.nix
-
+    # Zsh
+    ../../modules/home-manager/zoxide.nix
   ];
 
-
-
   home.packages = with pkgs; [
-	#Text editor
-	vscodium
+    #Text editor
+    vscodium
 
-	#Browser
-	firefox
-	chromium
-	qutebrowser
+    #Browser
+    firefox
+    chromium
+    qutebrowser
 
-  devenv
+    devenv
 
-	discord
+    discord
 
-	#CLI program
-	acpi #battery status
-	pulsemixer #audio manager
-	cmatrix #!!!
-	imv #image viewer
-  nix-prefetch-github #get hash and head from github repo
-	mosh
-	docker
-  stow
+    #CLI program
+    acpi #battery status
+    pulsemixer #audio manager
+    cmatrix #!!!
+    imv #image viewer
+    nix-prefetch-github #get hash and head from github repo
+    mosh
+    docker
+    stow
 
+    #Color palette
+    eyedropper
 
-	#Color palette
-	eyedropper
+    #App launcher
+    bemenu
 
-	#App launcher
-	bemenu
+    #File browser
+    xfce.thunar
 
-	#File browser
-	xfce.thunar
+    #Video viewer
+    haruna
 
-	#Video viewer
-	haruna
+    #Video editor
+    shotcut
 
-	#Video editor
-	shotcut
+    #Image editor
+    pinta
+    inkscape
 
-	#Image editor
-	pinta
-	inkscape
+    #Messaging app
+    signal-desktop
+    spotify
+    slurp
+    grim
 
-	#Messaging app
-	signal-desktop
-	spotify
-	slurp
-	grim
+    #Office suite
+    libreoffice
 
-	#Office suite
-	libreoffice
+    # Control Media
+    playerctl
 
-        # Control Media
-	playerctl
+    #Sonos Client
+    noson
 
-        #Sonos Client
-	noson
+    #Cloud Sync
+    synology-drive-client
+    tailscale
 
-        #Cloud Sync
-	synology-drive-client
-	tailscale
+    #Font
+    jetbrains-mono
+    nerdfonts
+    wezterm
+  ];
 
-	#Font
-	jetbrains-mono
-        nerdfonts
-	wezterm
-        ];
+  nixpkgs.config.allowUnfree = true;
 
-	nixpkgs.config.allowUnfree = true;
-
-	home.file = {
+  home.file = {
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
@@ -139,7 +138,7 @@
   };
 
   programs.wine.enable = true;
-	programs.thonny.enable = true;
+  programs.thonny.enable = true;
 
   home.username = "ngrogan";
   home.homeDirectory = "/home/ngrogan";

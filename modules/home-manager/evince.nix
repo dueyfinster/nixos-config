@@ -7,8 +7,8 @@
     };
   };
   config = lib.mkIf config.programs.evince.enable {
-   programs.evince = {
-    enable = true;
-   };
+    programs.evince = {
+      enable = true;
+    };
   };
 }

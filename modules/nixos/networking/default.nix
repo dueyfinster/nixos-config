@@ -1,9 +1,11 @@
-{config, pkgs, ...}:
 {
-
+  config,
+  pkgs,
+  ...
+}: {
   # Enable networking
   networking.networkmanager.enable = true;
-  
+
   networking.hostName = "compage";
 
   networking.firewall.enable = false;
@@ -14,5 +16,5 @@
   #networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   #Define your networks here
-  #Syntax : 
+  #Syntax :
 }

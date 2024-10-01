@@ -1,5 +1,10 @@
-{ config, pkgs, inputs, lib, ... }:
 {
+  config,
+  pkgs,
+  inputs,
+  lib,
+  ...
+}: {
   imports = [
   ];
   # Home Manager needs a bit of information about you and the paths it should
@@ -93,7 +98,7 @@
     };
     oh-my-zsh = {
       enable = true;
-      plugins = [ "docker" "docker-compose" "git" "helm" "kubectl" ];
+      plugins = ["docker" "docker-compose" "git" "helm" "kubectl"];
       theme = "robbyrussell";
     };
   };

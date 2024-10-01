@@ -1,9 +1,10 @@
-{ config, lib, pkgs, ... }:
-
-with lib;
-
-let
-
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+with lib; let
   useHostResolvConf = config.networking.resolvconf.enable && config.networking.useHostResolvConf;
 
   bootStage2 = pkgs.substituteAll {
@@ -15,23 +16,20 @@ let
     inherit useHostResolvConf;
     inherit (config.system.build) earlyMountScript;
     path = lib.makeBinPath ([
-      pkgs.coreutils
-      pkgs.util-linux
-    ] ++ lib.optional useHostResolvConf pkgs.openresolv);
-    postBootCommands = pkgs.writeText "local-cmds"
+        pkgs.coreutils
+        pkgs.util-linux
+      ]
+      ++ lib.optional useHostResolvConf pkgs.openresolv);
+    postBootCommands =
+      pkgs.writeText "local-cmds"
       ''
         ${config.boot.postBootCommands}
         ${config.powerManagement.powerUpCommands}
       '';
   };
-
-in
-
-{
+in {
   options = {
-
     boot = {
-
       postBootCommands = mkOption {
         default = "";
         example = "rm -f /var/log/messages";
@@ -58,13 +56,9 @@ in
         '';
       };
     };
-
   };
 
-
   config = {
-
     system.build.bootStage2 = bootStage2;
-
   };
 }

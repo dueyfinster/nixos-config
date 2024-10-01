@@ -1,6 +1,9 @@
-{ config, pkgs, inputs, ... }:
-
 {
+  config,
+  pkgs,
+  inputs,
+  ...
+}: {
   imports = [
     inputs.home-manager.darwinModules.default
     ../../modules/darwin
@@ -10,15 +13,15 @@
     name = "egronei";
     home = "/Users/egronei";
   };
-  
+
   home-manager = {
-    extraSpecialArgs = { inherit inputs; };
+    extraSpecialArgs = {inherit inputs;};
     users = {
       "egronei" = import ./home.nix;
-    };   
-   };
+    };
+  };
 
-   homebrew = {
+  homebrew = {
     casks = [
       "eclipse-jee"
       "elgato-stream-deck"
@@ -33,7 +36,7 @@
       "obsidian"
       "temurin"
     ];
-     masApps = {
+    masApps = {
       #"Microsoft Excel"       = 462058435;
       #"Microsoft PowerPoint"  = 462062816;
       #"Microsoft Word"        = 462054704;

@@ -1,6 +1,9 @@
-{ config, lib, pkgs, ... }:
-
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   options = {
     programs.thonny.enable = lib.mkOption {
       description = "Simple Python IDE suitable for embedded MicroPython development.";

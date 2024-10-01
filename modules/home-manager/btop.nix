@@ -7,11 +7,11 @@
     };
   };
   config = lib.mkIf config.programs.btop.enable {
-   programs.btop = {
-    enable = true;
-    settings = {
-      vim_keys = true;
-     };
+    programs.btop = {
+      enable = true;
+      settings = {
+        vim_keys = true;
+      };
     };
   };
 }

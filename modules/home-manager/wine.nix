@@ -1,6 +1,9 @@
-{ config, lib, pkgs, ... }:
-
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   options = {
     programs.wine.enable = lib.mkOption {
       description = "Whether to install Wine, a Windows compatibility layer.";

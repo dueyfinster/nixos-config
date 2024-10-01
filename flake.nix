@@ -28,7 +28,19 @@
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, home-manager-unstable, cachix, devenv, nixpkgs-unstable, nixos-hardware, nix-darwin, nixos-wsl, ... }: {
+  outputs = inputs @ {
+    self,
+    nixpkgs,
+    home-manager,
+    home-manager-unstable,
+    cachix,
+    devenv,
+    nixpkgs-unstable,
+    nixos-hardware,
+    nix-darwin,
+    nixos-wsl,
+    ...
+  }: {
     nixosConfigurations = {
       compage = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
@@ -37,7 +49,6 @@
           ./hosts/compage/configuration.nix
         ];
       };
-
 
       # For future WSL config
       ubuntu = nixpkgs.lib.nixosSystem {
@@ -70,19 +81,16 @@
           ./hosts/neils-imac-pro
         ];
       };
-
     };
 
     homeConfigurations = {
-
       "ngrogan" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {inherit inputs;};
         modules = [
-            ./hosts/firanta/home.nix
+          ./hosts/firanta/home.nix
         ];
       };
-
     };
   };
 }

@@ -1,13 +1,16 @@
-{ config, pkgs, inputs, lib, ... }:
 {
-  imports =
-    [
-      inputs.nixos-hardware.nixosModules.framework-13-7040-amd
-      ./hardware-configuration.nix
-      inputs.home-manager.nixosModules.default
-	    ../../modules/nixos
-    ];
-
+  config,
+  pkgs,
+  inputs,
+  lib,
+  ...
+}: {
+  imports = [
+    inputs.nixos-hardware.nixosModules.framework-13-7040-amd
+    ./hardware-configuration.nix
+    inputs.home-manager.nixosModules.default
+    ../../modules/nixos
+  ];
 
   user.enable = true;
   #user.userName = "egronei";
@@ -17,12 +20,12 @@
     XCURSOR_SIZE = "24";
   };
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   nix.extraOptions = ''
-      trusted-users = root ngrogan
-      extra-substituters = https://devenv.cachix.org;
-      extra-trusted-public-keys = devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw=;
+    trusted-users = root ngrogan
+    extra-substituters = https://devenv.cachix.org;
+    extra-trusted-public-keys = devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw=;
   '';
 
   nixpkgs.config.allowUnfree = true;
@@ -30,11 +33,11 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    extraSpecialArgs = { inherit inputs; };
+    extraSpecialArgs = {inherit inputs;};
     users = {
       "ngrogan" = import ./home.nix;
     };
-   };
+  };
 
   environment.systemPackages = with pkgs; [
     vim
@@ -48,7 +51,7 @@
     wget
     tmux
     freshfetch
-   ];
+  ];
 
   #programs.mtr.enable = true;
   #programs.gnupg.agent = {
@@ -67,7 +70,7 @@
 
   services.tailscale.enable = true;
 
-   # Firmware Uodater
+  # Firmware Uodater
   services.fwupd.enable = true;
 
   boot.initrd.luks.devices."luks-c94a6166-2181-45a8-9af9-d28ec733337c".device = "/dev/disk/by-uuid/c94a6166-2181-45a8-9af9-d28ec733337c";
@@ -104,5 +107,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.05"; # Did you read the comment?
-
 }
