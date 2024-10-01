@@ -3,6 +3,7 @@
 {
     imports = [
       ./btop.nix
+      ./shell-aliases.nix
       ./thonny.nix
       ./wine.nix
     ];
