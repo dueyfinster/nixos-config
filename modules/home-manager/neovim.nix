@@ -65,7 +65,12 @@ in {
 
   programs.neovim = {
     enable = true;
+    viAlias = true;
+    vimAlias = true;
+    vimdiffAlias = true;
+    
     package = pkgs.neovim-unwrapped;
+    
     plugins = [
       treesitterWithGrammars
     ];
