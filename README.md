@@ -15,6 +15,11 @@ Rebuild on darwin:
 darwin-rebuild switch --flake .
 ```
 
+Build ISO:
+```
+nix build .#nixosConfigurations.exampleIso.config.system.build.isoImage
+```
+
 ## Installation
 Install nixos with this guide (make sure to use systemd boot) <br/>
 https://nixos.org/manual/nixos/stable/ <br/>
