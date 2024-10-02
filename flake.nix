@@ -50,6 +50,14 @@
         ];
       };
 
+      exampleIso = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        modules = [
+          home-manager.nixosModules.default
+          ./hosts/iso/configuration.nix
+        ];
+      };
+
       # For future WSL config
       ubuntu = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
