@@ -6,6 +6,7 @@
   ...
 }: {
   imports = [
+    ../../modules/home-manager
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -39,7 +40,6 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
     kubectl
-    fzf
     jq
     kubecolor
   ];

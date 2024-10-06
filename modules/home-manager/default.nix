@@ -11,6 +11,7 @@
     ./fzf.nix
     ./git.nix
     #./neovim.nix
+    ./ripgrep.nix
     ./shell-aliases.nix
     ./starship.nix
     ./thonny.nix

@@ -6,7 +6,6 @@
   ...
 }: {
   imports = [
-    ../../modules/home-manager/zsh.nix
     ../../modules/home-manager
   ];
   # Home Manager needs a bit of information about you and the paths it should
@@ -40,12 +39,9 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-    fzf
     kubecolor
     kubectl
     jq
-    ripgrep
-    zoxide
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
