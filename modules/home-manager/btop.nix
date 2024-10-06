@@ -1,4 +1,9 @@
-{pkgs, ...}: {
+{
+    pkgs,
+    lib,
+    config,
+    ...
+}: {
   options = {
     programs.btop.enable = lib.mkOption {
       description = "Whether to install btop, check cpu, disk, ram etc.";
@@ -15,3 +20,4 @@
     };
   };
 }
+

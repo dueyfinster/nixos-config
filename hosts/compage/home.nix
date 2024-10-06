@@ -9,9 +9,6 @@
     # Default
     ../../modules/home-manager
 
-    #Bat
-    ../../modules/home-manager/bat.nix
-
     #Fish
     ../../modules/home-manager/fish.nix
 
@@ -57,7 +54,8 @@
 
   home.packages = with pkgs; [
     #Text editor
-    vscodium
+    #vscodium
+    vscode
 
     #Browser
     firefox

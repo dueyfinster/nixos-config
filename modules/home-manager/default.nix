@@ -5,7 +5,7 @@
   ...
 }: {
   imports = [
-    ./btop.nix
+    #./btop.nix
     ./evince.nix
     ./shell-aliases.nix
     ./thonny.nix
