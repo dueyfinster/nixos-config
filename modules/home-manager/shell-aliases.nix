@@ -28,6 +28,9 @@ in {
       "...." = "cd ../../..";
       "....." = "cd ../../../..";
 
+      # Home manager rebuild
+      hrb = "nix run home-manager -- switch --flake .";
+
       # virsh
       virsh = "virsh --connect='qemu:///system'";
       virt-install = "virt-install --connect 'qemu:///system'";

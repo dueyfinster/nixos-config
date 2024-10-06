@@ -36,17 +36,11 @@
     #Neovim
     ../../modules/home-manager/neovim.nix
 
-    #Starship
-    ../../modules/home-manager/starship.nix
-
     #Waybar
     ../../modules/home-manager/waybar.nix
 
     #Yt-dlp
     ../../modules/home-manager/yt-dlp.nix
-
-    # Zsh
-    ../../modules/home-manager/zsh.nix
 
     # Zsh
     ../../modules/home-manager/zoxide.nix

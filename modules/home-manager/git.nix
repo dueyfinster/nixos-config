@@ -30,7 +30,7 @@
     gco = "git checkout";
     gcm = "git checkout master";
 
-    gst = "git status";
+    gs = "git status";
     gss = "git status --short";
 
     # grh = "git reset";
