@@ -12,15 +12,6 @@
     #Fish
     ../../modules/home-manager/fish.nix
 
-    #Fzf
-    ../../modules/home-manager/fzf.nix
-
-    #Direnv
-    ../../modules/home-manager/direnv.nix
-
-    #Git
-    ../../modules/home-manager/git.nix
-
     #Theme (cursor theme, gtk theme, ... )
     ../../modules/home-manager/theme.nix
 
@@ -41,9 +32,6 @@
 
     #Yt-dlp
     ../../modules/home-manager/yt-dlp.nix
-
-    # Zsh
-    ../../modules/home-manager/zoxide.nix
   ];
 
   home.packages = with pkgs; [
