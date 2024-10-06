@@ -1,4 +1,9 @@
-{pkgs, lib, config, ...}: {
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   options = {
     programs.evince.enable = lib.mkOption {
       description = "Whether to install evince pdf reader";

@@ -10,5 +10,6 @@
     ./shell-aliases.nix
     ./thonny.nix
     ./wine.nix
+    ./zsh.nix
   ];
 }

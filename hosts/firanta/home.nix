@@ -5,8 +5,7 @@
   ...
 }: {
   imports = [
-    #Bat
-    ../../modules/home-manager/bat.nix
+    ../../modules/home-manager
   ];
 
   home.packages = with pkgs; [
@@ -15,6 +14,8 @@
     ripgrep
     stow
   ];
+
+  programs.zsh.enable = true;
 
   home.username = "ngrogan";
   home.homeDirectory = "/home/ngrogan";

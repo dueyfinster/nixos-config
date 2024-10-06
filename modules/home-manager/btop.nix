@@ -1,8 +1,8 @@
 {
-    pkgs,
-    lib,
-    config,
-    ...
+  pkgs,
+  lib,
+  config,
+  ...
 }: {
   options = {
     programs.btop.enable = lib.mkOption {
@@ -20,4 +20,3 @@
     };
   };
 }
-
