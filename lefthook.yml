@@ -1,0 +1,8 @@
+pre-commit:
+  parallel: true
+  commands:
+    nix-linter:
+      run: |
+        alejandra -q {staged_files} \
+          && git add {staged_files}
+      glob: '*.{nix}'

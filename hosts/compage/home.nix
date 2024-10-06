@@ -51,6 +51,8 @@
     #CLI program
     acpi #battery status
     pulsemixer #audio manager
+    lefthook
+    alejandra
     cmatrix #!!!
     imv #image viewer
     nix-prefetch-github #get hash and head from github repo
