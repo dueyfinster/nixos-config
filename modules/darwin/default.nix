@@ -71,9 +71,15 @@
       #] ++ lib.optionals (hostname == "EMB-2P2T1PXX") [
     ];
     masApps = {
+      "Bitwarden" = 1352778147;
+      "Keyword Search" = 1558453954;
+      "Kindle" = 302584613;
+      "Overcast" = 888422857;
       "Parcel" = 639968404;
       "Reeder" = 1529448980;
+      "Sponsorblock" = 1573461917;
       "Things" = 904280696;
+      "Vinegar" = 1591303229;
       "Xcode" = 497799835;
       #} // lib.optionalAttrs (inputs.self.darwinConfigurations.hostname != "EMB-2P2T1PXX") {
       #  "Keynote" = 409183694;
