@@ -73,7 +73,7 @@
     masApps = {
       "Bitwarden" = 1352778147;
       "Keyword Search" = 1558453954;
-      "Overcast" = 888422857;
+      "Kindle" = 302584613;
       "Parcel" = 639968404;
       "Reeder" = 1529448980;
       "Sponsorblock" = 1573461917;
