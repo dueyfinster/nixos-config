@@ -23,7 +23,7 @@
 
   homebrew = {
     casks = [
-      #""
+      label-live
     ];
     masApps = {
       #"Microsoft Excel"       = 462058435;
