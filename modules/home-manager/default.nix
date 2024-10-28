@@ -15,6 +15,7 @@
     ./shell-aliases.nix
     ./starship.nix
     ./thonny.nix
+    ./tmux.nix
     ./wine.nix
     ./zsh.nix
     ./zoxide.nix

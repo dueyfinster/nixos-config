@@ -47,6 +47,7 @@ in {
   ];
 
   services.dbus.enable = true;
+  hardware.opengl.enable = true;
 
   xdg.portal = {
     enable = true;
@@ -57,5 +58,31 @@ in {
   programs.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
+  };
+
+  # Styling
+  fonts = {
+    packages = with pkgs; [
+      noto-fonts
+      noto-fonts-emoji
+    ];
+
+    fontconfig = {
+      # Fixes pixelation
+      antialias = true;
+
+      # Fixes antialiasing blur
+      hinting = {
+        enable = true;
+        style = "full"; # no difference
+        autohint = true; # no difference
+      };
+
+      subpixel = {
+        # Makes it bolder
+        rgba = "rgb";
+        lcdfilter = "default"; # no difference
+      };
+    };
   };
 }
