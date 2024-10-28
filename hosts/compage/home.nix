@@ -60,6 +60,9 @@
     docker
     stow
 
+    borgbackup
+    borgmatic
+
     #Color palette
     eyedropper
 
