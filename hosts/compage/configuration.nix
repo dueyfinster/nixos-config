@@ -69,6 +69,14 @@
   };
 
   services.tailscale.enable = true;
+  services.syncthing = {
+    enable = true;
+    openDefaultPorts = true;
+    systemService = true;
+    user = "ngrogan";
+    group = "wheel";
+    dataDir = "/home/ngrogan/syncthing";
+  };
 
   # Firmware Uodater
   services.fwupd.enable = true;
