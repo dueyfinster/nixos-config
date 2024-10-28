@@ -7,6 +7,7 @@
   imports = [
     #./btop.nix
     ./direnv.nix
+    ./drawio.nix
     ./evince.nix
     ./fzf.nix
     ./git.nix
