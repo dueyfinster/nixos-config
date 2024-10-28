@@ -121,6 +121,7 @@
 
   programs.wine.enable = true;
   programs.thonny.enable = true;
+  programs.emacs.enable = true;
 
   home.username = "ngrogan";
   home.homeDirectory = "/home/ngrogan";
