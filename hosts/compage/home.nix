@@ -122,6 +122,7 @@
     # '';
   };
 
+  programs.calibre.enable = true;
   programs.wine.enable = true;
   programs.thonny.enable = true;
   programs.emacs.enable = true;

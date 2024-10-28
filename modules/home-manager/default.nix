@@ -6,6 +6,7 @@
 }: {
   imports = [
     #./btop.nix
+    ./calibre.nix
     ./direnv.nix
     ./drawio.nix
     ./evince.nix
