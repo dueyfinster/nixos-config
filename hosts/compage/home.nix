@@ -122,11 +122,31 @@
     # '';
   };
 
+  programs.anki.enable = true;
   programs.calibre.enable = true;
-  programs.wine.enable = true;
-  programs.thonny.enable = true;
-  programs.emacs.enable = true;
+  programs.kubectl.enable = true;
   programs.drawio.enable = true;
+  programs.thonny.enable = true;
+  programs.wine.enable = true;
+
+  programs.emacs = {
+    enable = true;
+    extraPackages = epkgs: [
+      # Preinstall some non-trivial dependencies so emacs doesn't need to build
+      # them from source
+      epkgs.use-package
+      epkgs.vterm
+      epkgs.emacsql
+      epkgs.emacsql-sqlite
+    ];
+  };
+
+  services.emacs = {
+    enable = true;
+    client.enable = true;
+    #defaultEditor = true;
+    socketActivation.enable = true;
+  };
 
   home.username = "ngrogan";
   home.homeDirectory = "/home/ngrogan";

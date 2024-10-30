@@ -6,6 +6,7 @@
 }: {
   imports = [
     #./btop.nix
+    ./anki.nix
     ./calibre.nix
     ./direnv.nix
     ./drawio.nix
@@ -13,6 +14,7 @@
     ./fzf.nix
     ./git.nix
     #./neovim.nix
+    ./kubectl.nix
     ./ripgrep.nix
     ./shell-aliases.nix
     ./starship.nix
