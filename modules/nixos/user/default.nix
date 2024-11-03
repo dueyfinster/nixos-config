@@ -22,7 +22,7 @@ in {
       isNormalUser = true;
       #initialPassword = "12345";
       description = "Neil Grogan";
-      extraGroups = ["networkmanager" "wheel"];
+      extraGroups = ["networkmanager" "wheel" "dialout"];
       packages = with pkgs; [];
       shell = pkgs.bash;
       openssh.authorizedKeys.keys = [
