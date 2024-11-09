@@ -109,7 +109,6 @@
     ]
     ++ (with inputs.nixpkgs-unstable.legacyPackages.${pkgs.system}; [
       livebook
-      vscode
     ]);
 
   nixpkgs.config.allowUnfree = true;

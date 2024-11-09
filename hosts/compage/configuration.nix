@@ -4,7 +4,12 @@
   inputs,
   lib,
   ...
-}: {
+}: let
+  pkgs-unstable = import inputs.nixpkgs-unstable {
+    system = pkgs.stdenv.system;
+    config.allowUnfree = true;
+  };
+in {
   imports = [
     inputs.nixos-hardware.nixosModules.framework-13-7040-amd
     ./hardware-configuration.nix
@@ -39,19 +44,23 @@
     };
   };
 
-  environment.systemPackages = with pkgs; [
-    vim
-    neovim
-    nodejs_22
-    unzip
-    firefox
-    steam
-    bat
-    eza
-    wget
-    tmux
-    freshfetch
-  ];
+  environment.systemPackages = with pkgs;
+    [
+      vim
+      neovim
+      nodejs_22
+      unzip
+      firefox
+      steam
+      bat
+      eza
+      wget
+      tmux
+      freshfetch
+    ]
+    ++ (with pkgs-unstable; [
+      vscode
+    ]);
 
   #programs.mtr.enable = true;
   #programs.gnupg.agent = {
