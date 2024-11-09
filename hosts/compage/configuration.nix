@@ -51,6 +51,7 @@ in {
       nodejs_22
       unzip
       firefox
+      vscode
       steam
       bat
       eza
@@ -59,7 +60,7 @@ in {
       freshfetch
     ]
     ++ (with pkgs-unstable; [
-      vscode
+      hello
     ]);
 
   #programs.mtr.enable = true;
