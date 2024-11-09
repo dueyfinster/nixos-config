@@ -38,7 +38,6 @@
     [
       #Text editor
       #vscodium
-      vscode
 
       #Browser
       firefox
@@ -106,9 +105,11 @@
       jetbrains-mono
       nerdfonts
       wezterm
+      whatsapp-for-linux
     ]
     ++ (with inputs.nixpkgs-unstable.legacyPackages.${pkgs.system}; [
       livebook
+      vscode
     ]);
 
   nixpkgs.config.allowUnfree = true;
