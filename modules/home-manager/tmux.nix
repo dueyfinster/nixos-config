@@ -8,7 +8,8 @@
     aggressiveResize = true;
     historyLimit = 50000;
     keyMode = "vi";
-    plugins = [
+    tmuxinator.enable = true;
+    plugins = with pkgs.tmuxPlugins; [
       {
         plugin = pkgs.tmuxPlugins.power-theme;
         extraConfig = ''
@@ -18,6 +19,10 @@
           set -g @tmux_power_session_icon ''
         '';
       }
+      better-mouse-mode
+      sensible
+      resurrect
+      continuum
     ];
     extraConfig = ''
       # Enable true-color terminal support
@@ -43,8 +48,14 @@
       bind-key C-p previous-window
       bind-key C-c new-window -c '#{pane_current_path}'
 
+      # Run tm command in tmux
+      bind-key -n C-f run-shell "tmux neww tm"
+
       set -ga terminal-overrides ',xterm*:XT:Ms=\E]52;%p1%s;%p2%s\007'
       set -ga terminal-overrides ',screen*:XT:Ms=\E]52;%p1%s;%p2%s\007'
+
+      # Automatic session restore.
+      set -g @continuum-restore 'on'
     '';
   };
 }

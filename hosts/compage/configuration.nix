@@ -56,7 +56,6 @@ in {
       bat
       eza
       wget
-      tmux
       freshfetch
     ]
     ++ (with pkgs-unstable; [

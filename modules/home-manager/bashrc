@@ -11,6 +11,9 @@ HISTSIZE= HISTFILESIZE=
 
 set -o vi
 
+
+bind -x '"\C-f": tm;'
+
 #Global path
 export PATH=$PATH:~/.local/bin/
 export PATH=$PATH:~/nixos-config/home-manager/config/bash-scripts
