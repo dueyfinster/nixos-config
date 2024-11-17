@@ -7,8 +7,12 @@
     enable = true;
     aggressiveResize = true;
     historyLimit = 50000;
+    baseIndex = 1;
+    shortcut = "a";
     keyMode = "vi";
     tmuxinator.enable = true;
+    mouse = true;
+
     plugins = with pkgs.tmuxPlugins; [
       {
         plugin = pkgs.tmuxPlugins.power-theme;
@@ -20,9 +24,11 @@
         '';
       }
       better-mouse-mode
-      sensible
-      resurrect
       continuum
+      resurrect
+      sensible
+      vim-tmux-navigator
+      yank
     ];
     extraConfig = ''
       # Enable true-color terminal support
@@ -30,9 +36,6 @@
       # set-option -ga terminal-overrides ",xterm-256color:Tc"  # for Konsole
       # set-option -ga terminal-overrides ",xterm-24bit:Tc"     # custom stuff
       # set-option -ga terminal-overrides ",konsole-direct:Tc"
-
-      # Mouse support
-      set-option -g mouse on
 
       # pane movement
       bind-key J command-prompt -p "join pane from:"  "join-pane -s ':%%'"
@@ -50,6 +53,8 @@
 
       # Run tm command in tmux
       bind-key -n C-f run-shell "tmux neww tm"
+      bind-key -r f run-shell "tmux neww ~/.local/bin/tm"
+      bind-key -r D run-shell "~/.local/bin/tm ~/.dotfiles"
 
       set -ga terminal-overrides ',xterm*:XT:Ms=\E]52;%p1%s;%p2%s\007'
       set -ga terminal-overrides ',screen*:XT:Ms=\E]52;%p1%s;%p2%s\007'
