@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  pkgs-unstable,
   inputs,
   lib,
   ...
@@ -91,9 +92,6 @@
       #Office suite
       libreoffice
 
-      # Todo app
-      ticktick
-
       # Control Media
       playerctl
 
@@ -110,11 +108,10 @@
       wezterm
       whatsapp-for-linux
     ]
-    ++ (with inputs.nixpkgs-unstable.legacyPackages.${pkgs.system}; [
+    ++ (with pkgs-unstable; [
       livebook
+      ticktick
     ]);
-
-  nixpkgs.config.allowUnfree = true;
 
   home.file = {
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
