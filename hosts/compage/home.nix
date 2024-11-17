@@ -91,6 +91,9 @@
       #Office suite
       libreoffice
 
+      # Todo app
+      ticktick
+
       # Control Media
       playerctl
 
