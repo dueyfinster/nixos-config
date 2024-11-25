@@ -1,10 +1,17 @@
 {
   config,
   pkgs,
+  pkgs-unstable,
   inputs,
   lib,
   ...
-}: {
+}:
+let
+  pkgs-unstable = import inputs.nixpkgs-unstable {
+    system = pkgs.stdenv.system;
+    config.allowUnfree = true;
+  };
+in {
   imports = [
     ../../modules/home-manager
   ];
@@ -42,8 +49,10 @@
     kubecolor
     kubectl
     jq
-    whatsapp-for-mac
-  ];
+  ]
+    ++ (with pkgs-unstable; [
+      livebook
+    ]);
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.

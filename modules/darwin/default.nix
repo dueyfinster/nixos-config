@@ -63,6 +63,7 @@
       "sonos"
       "spotify"
       "sublime-text"
+      "ticktick"
       "visual-studio-code"
       "wezterm"
       #] ++ lib.optionals (hostname != "EMB-2P2T1PXX") [
