@@ -16,6 +16,7 @@
     #./neovim.nix
     ./kubectl.nix
     ./ripgrep.nix
+    ./scripts.nix
     ./shell-aliases.nix
     ./starship.nix
     ./thonny.nix

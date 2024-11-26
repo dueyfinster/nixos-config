@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+# A script to create or attach to a TMUX session based on the list of repository folders on disk. Will use Tmuxinator if a session name matches.
+
+if [[ $# -eq 1 ]]; then
+    selected=$1
+else
+    selected=$(find ~/work ~/personal ~/projects -mindepth 1 -maxdepth 1 -type d -exec echo {} \; 2>/dev/null | cat - <(echo "$HOME/.dotfiles") | fzf)
+fi
+
+if [[ -z $selected ]]; then
+    exit 0
+fi
+
+selected_name=$(basename "$selected" | tr . _)
+tmux_running=$(pgrep tmux)
+
+if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
+  tmuxinator_project=$(tmuxinator list | grep $selected_name)
+  if [[ -n $tmuxinator_project ]]; then
+    tmuxinator start $selected_name
+  else
+    tmux new-session -s $selected_name -c $selected
+  fi
+  exit 0
+fi
+
+if ! tmux has-session -t=$selected_name 2> /dev/null; then
+  tmuxinator_project=$(tmuxinator list | grep $selected_name)
+  if [[ -n $tmuxinator_project ]]; then
+    tmuxinator start $selected_name
+  else
+    tmux new-session -ds $selected_name -c $selected
+  fi
+fi
+
+if [[ -z $TMUX ]] && [[ ! -z $tmux_running ]]; then
+  tmux attach-session -t $selected_name
+else
+  tmux switch-client -t $selected_name
+fi
