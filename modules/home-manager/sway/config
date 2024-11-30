@@ -24,7 +24,7 @@ client.background       #ffffff
 default_border pixel 1
 
 # Wallpaper
-output * bg /home/ngrogan/nixos-config/wallpaper.png fill
+output * bg /home/ngrogan/personal/nixos-config/wallpaper.png fill
 
 # Key bindings
     # Start a terminal
