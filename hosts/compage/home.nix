@@ -130,7 +130,7 @@
   programs.calibre.enable = true;
   programs.kubectl.enable = true;
   programs.drawio.enable = true;
-  programs.thonny.enable = true;
+  programs.thonny.enable = false;
   programs.wine.enable = true;
 
   programs.emacs = {

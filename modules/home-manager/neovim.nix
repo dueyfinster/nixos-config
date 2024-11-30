@@ -56,8 +56,7 @@ in {
     nil # nix language server
     nodePackages_latest.bash-language-server
     nodePackages_latest.typescript-language-server
-    nodePackages_latest.vscode-html-languageserver-bin
-    nodePackages_latest.vscode-json-languageserver
+    vscode-langservers-extracted
     pyright
     stylua
     yaml-language-server

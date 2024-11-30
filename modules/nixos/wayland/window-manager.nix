@@ -47,7 +47,7 @@ in {
   ];
 
   services.dbus.enable = true;
-  hardware.opengl.enable = true;
+  hardware.graphics.enable = true;
 
   xdg.portal = {
     enable = true;
