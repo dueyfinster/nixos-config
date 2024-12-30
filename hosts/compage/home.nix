@@ -97,6 +97,7 @@
 
       #Sonos Client
       noson
+      plex-desktop
 
       #Cloud Sync
       synology-drive-client
@@ -109,6 +110,7 @@
       whatsapp-for-linux
     ]
     ++ (with pkgs-unstable; [
+      ghostty
       livebook
       ticktick
     ]);
