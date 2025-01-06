@@ -17,6 +17,12 @@ in {
     ../../modules/nixos
   ];
 
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d";
+  };
+
   user.enable = true;
   #user.userName = "egronei";
 
