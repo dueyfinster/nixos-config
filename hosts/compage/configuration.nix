@@ -132,6 +132,9 @@ in {
   # Firmware Uodater
   services.fwupd.enable = true;
 
+  # Suspend on closing laptop
+  services.logind.lidSwitch = "suspend";
+
   boot.initrd.luks.devices."luks-c94a6166-2181-45a8-9af9-d28ec733337c".device = "/dev/disk/by-uuid/c94a6166-2181-45a8-9af9-d28ec733337c";
   networking.hostName = "compage"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.

@@ -22,6 +22,11 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 client.background       #ffffff
 
 default_border pixel 1
+output eDP-1 mode 2880x1920 scale 2 scale_filter smart
+input 2362:628:PIXA3854:00_093A:0274_Touchpad natural_scroll enabled tap enable
+
+#output DP-10 pos 1440 0 res 1920x1080
+ bindsym $mod+Control+Shift+Right move workspace to output right bindsym $mod+Control+Shift+Left move workspace to output left bindsym $mod+Control+Shift+Down move workspace to output down bindsym $mod+Control+Shift+Up move workspace to output up DP-10
 
 # Wallpaper
 output * bg /home/ngrogan/personal/nixos-config/wallpaper.png fill

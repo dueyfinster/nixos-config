@@ -68,6 +68,8 @@ in {
       noto-fonts-emoji
     ];
 
+    enableDefaultPackages = true;
+
     fontconfig = {
       # Fixes pixelation
       antialias = true;
