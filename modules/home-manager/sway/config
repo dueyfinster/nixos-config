@@ -217,6 +217,9 @@ bindsym $mod+Tab workspace back_and_forth
 # super+tab cycle workspaces
 bindsym $win+Tab workspace next
 
+# super+` switch windows of same app
+bindsym $mod+` exec ~/.config/sway/switch_same_app.sh
+
 # Idle lock
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
