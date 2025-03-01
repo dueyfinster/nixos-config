@@ -54,7 +54,6 @@ in {
     [
       vim
       neovim
-      nodejs_22
       unzip
       firefox
       vscode
