@@ -92,6 +92,8 @@
       #Office suite
       libreoffice
 
+      jq
+
       # Control Media
       playerctl
 
