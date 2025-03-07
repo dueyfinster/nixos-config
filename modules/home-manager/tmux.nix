@@ -31,11 +31,16 @@
       yank
     ];
     extraConfig = ''
+      # Set zsh to the default-shell
+      # set-option -g default-shell zsh # unsure if this is needed for non-macos
+      # Needed for macOS
+      set-option -g default-command zsh
+
       # Enable true-color terminal support
       # (I think these are no longer needed since I have patched .terminfo stuff now)
-      # set-option -ga terminal-overrides ",xterm-256color:Tc"  # for Konsole
-      # set-option -ga terminal-overrides ",xterm-24bit:Tc"     # custom stuff
-      # set-option -ga terminal-overrides ",konsole-direct:Tc"
+      set-option -ga terminal-overrides ",xterm-256color:Tc"  # for Konsole
+      set-option -ga terminal-overrides ",xterm-24bit:Tc"     # custom stuff
+      set-option -ga terminal-overrides ",konsole-direct:Tc"
 
       # pane movement
       bind-key J command-prompt -p "join pane from:"  "join-pane -s ':%%'"
@@ -55,9 +60,6 @@
       bind-key -n C-f run-shell "tmux neww tm"
       bind-key -r f run-shell "tmux neww ~/.local/bin/tm"
       bind-key -r D run-shell "~/.local/bin/tm ~/.dotfiles"
-
-      set -ga terminal-overrides ',xterm*:XT:Ms=\E]52;%p1%s;%p2%s\007'
-      set -ga terminal-overrides ',screen*:XT:Ms=\E]52;%p1%s;%p2%s\007'
 
       # Automatic session restore.
       set -g @continuum-restore 'on'
