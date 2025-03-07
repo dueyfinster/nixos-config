@@ -26,11 +26,16 @@ fi
 
 if ! tmux has-session -t=$selected_name 2> /dev/null; then
   tmuxinator_project=$(tmuxinator list | grep $selected_name)
+
   if [[ -n $tmuxinator_project ]]; then
     tmuxinator start $selected_name
   else
-    tmuxinator start -n $selected_name -p "$HOME"/.tmuxinator/default.yml
-    #tmux new-session -ds $selected_name -c $selected
+      if [[ -f "$selected"/.tmuxinator.yml ]]; then
+        tmuxinator start -p "$selected"/.tmuxinator.yml
+      else
+        tmuxinator start -n $selected_name -p "$HOME"/.tmuxinator/default.yml root="$selected"
+        #tmux new-session -ds $selected_name -c $selected
+      fi
   fi
 fi
 
