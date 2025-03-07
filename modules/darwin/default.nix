@@ -52,11 +52,10 @@
       #"bartender"
       "bunch"
       "drawio"
-      "docker"
       "emacs"
       "firefox@developer-edition"
+      "ghostty"
       "hazel"
-      #"iterm2"
       "karabiner-elements"
       "moom"
       "plex"
@@ -67,6 +66,7 @@
       "visual-studio-code"
       "wezterm"
       #] ++ lib.optionals (hostname != "EMB-2P2T1PXX") [
+      #  "docker"
       #  "crossover"
       #  "steam"
       #] ++ lib.optionals (hostname == "EMB-2P2T1PXX") [
