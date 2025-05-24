@@ -11,7 +11,7 @@
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
 
-    initExtra = ''
+    initContent = ''
       # CTRL+F bound to find tmux session
       bindkey -s ^f "tm\n"
     '';

@@ -106,8 +106,10 @@
       tailscale
 
       #Font
+      nerd-fonts.fira-code
+      nerd-fonts.jetbrains-mono
+      nerd-fonts.noto
       jetbrains-mono
-      nerdfonts
       wezterm
       whatsapp-for-linux
     ]
@@ -145,7 +147,6 @@
       epkgs.use-package
       epkgs.vterm
       epkgs.emacsql
-      epkgs.emacsql-sqlite
     ];
   };
 

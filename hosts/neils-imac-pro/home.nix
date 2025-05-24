@@ -79,7 +79,7 @@
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
 
-    initExtra = ''
+    initContent = ''
       export PATH="/nix/var/nix/profiles/default/bin/:/run/current-system/sw/bin/:$PATH"
       source <(kubectl completion zsh)
     '';
