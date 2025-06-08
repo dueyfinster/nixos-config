@@ -116,6 +116,7 @@
     ++ (with pkgs-unstable; [
       ghostty
       livebook
+      obsidian
       ticktick
     ]);
 
