@@ -18,7 +18,7 @@
     ./ripgrep.nix
     ./scripts.nix
     ./shell-aliases.nix
-    ./starship.nix
+    ./starship
     ./thonny.nix
     ./tmux.nix
     ./wine.nix
