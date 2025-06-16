@@ -26,7 +26,7 @@
     ../../modules/home-manager/email.nix
 
     #Neovim
-    ../../modules/home-manager/neovim.nix
+    ../../modules/home-manager/neovim
 
     #Waybar
     ../../modules/home-manager/waybar.nix

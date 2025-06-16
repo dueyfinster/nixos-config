@@ -2,6 +2,7 @@
   home.packages = with pkgs; [
     alejandra
     black
+    gcc
     golangci-lint
     gopls
     gotools
