@@ -5,7 +5,7 @@
 }: let
   inherit (pkgs.stdenv) isDarwin;
   darwinAliases = {
-    nrb = "darwin-rebuild switch --flake .";
+    nrb = "sudo darwin-rebuild switch --flake .";
   };
   nixosAliases = {
     nrb = "sudo nixos-rebuild switch --impure --flake .";

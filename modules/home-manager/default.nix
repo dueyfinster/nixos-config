@@ -13,7 +13,7 @@
     ./evince.nix
     ./fzf.nix
     ./git.nix
-    #./neovim.nix
+    ./neovim
     ./kubectl.nix
     ./ripgrep.nix
     ./scripts.nix
