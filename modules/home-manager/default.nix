@@ -7,6 +7,7 @@
   imports = [
     #./btop.nix
     ./anki.nix
+    ./bat.nix
     ./calibre.nix
     ./direnv.nix
     ./drawio.nix
