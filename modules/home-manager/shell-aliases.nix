@@ -16,6 +16,7 @@ in {
       l = "eza -lh --group-directories-first -F --icons";
       la = "eza -aalhF --group-directories-first --icons";
       lt = "eza --tree --icons -d -a --ignore-glob '**/.git'";
+      cl = "clear";
       type = "type -a";
       rg = "rg -i -L";
       vimdiff = "nvim -d";
