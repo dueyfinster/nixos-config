@@ -15,12 +15,28 @@
 
     plugins = with pkgs.tmuxPlugins; [
       {
-        plugin = pkgs.tmuxPlugins.power-theme;
+        plugin = pkgs.tmuxPlugins.catppuccin;
         extraConfig = ''
-          set -g @tmux_power_theme 'sky'
-          set -g @tmux_power_user_icon ''
-          set -g @tmux_power_time_icon ''
-          set -g @tmux_power_session_icon ''
+          set -g @catppuccin_flavor "frappe"
+          set -g @catppuccin_window_status_style "rounded"
+          set -g @catppuccin_window_left_separator ""
+          set -g @catppuccin_window_right_separator " "
+          set -g @catppuccin_window_middle_separator " █"
+          set -g @catppuccin_window_number_position "right"
+          set -g @catppuccin_window_default_fill "number"
+          set -g @catppuccin_window_default_text "#W"
+          set -g @catppuccin_window_current_fill "number"
+          set -g @catppuccin_window_current_text "#W#{?window_zoomed_flag,(),}"
+          set -g @catppuccin_status_modules_right "directory date_time"
+          set -g @catppuccin_status_modules_left "session"
+          set -g @catppuccin_status_left_separator  " "
+          set -g @catppuccin_status_right_separator " "
+          set -g @catppuccin_status_right_separator_inverse "no"
+          set -g @catppuccin_status_fill "icon"
+          set -g @catppuccin_status_connect_separator "no"
+          set -g @catppuccin_directory_text "#{b:pane_current_path}"
+          set -g @catppuccin_date_time_text "%H:%M"
+
         '';
       }
       better-mouse-mode
@@ -35,6 +51,11 @@
       # set-option -g default-shell zsh # unsure if this is needed for non-macos
       # Needed for macOS
       set-option -g default-command zsh
+
+
+      set -g status-position top
+      set -g pane-active-border-style 'fg=magenta,bg=default'
+      set -g pane-border-style 'fg=brightblack,bg=default'
 
       # Enable true-color terminal support
       # (I think these are no longer needed since I have patched .terminfo stuff now)
