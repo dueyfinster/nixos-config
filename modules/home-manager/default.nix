@@ -13,6 +13,7 @@
     ./drawio.nix
     ./evince.nix
     ./fzf.nix
+    ./ghostty.nix
     ./git.nix
     ./neovim
     ./kubectl.nix
