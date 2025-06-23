@@ -22,7 +22,7 @@
     ./shell-aliases.nix
     ./starship
     ./thonny.nix
-    ./tmux.nix
+    # ./tmux.nix
     ./wine.nix
     ./zsh.nix
     ./zoxide.nix
