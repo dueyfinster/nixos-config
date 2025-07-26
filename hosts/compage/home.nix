@@ -114,7 +114,6 @@
       whatsapp-for-linux
     ]
     ++ (with pkgs-unstable; [
-      ghostty
       # livebook
       obsidian
       ticktick
