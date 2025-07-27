@@ -9,9 +9,13 @@
     userEmail = "neil@grogan.org";
     extraConfig = {
       init.defaultBranch = "main";
-      pull.rebase = false;
+      pull.rebase = true;
     };
   };
+
+  home.packages = with pkgs; [
+    lazygit
+  ];
 
   home.shellAliases = {
     # Git
