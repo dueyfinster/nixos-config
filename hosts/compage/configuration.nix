@@ -60,6 +60,7 @@ in {
       steam
       bat
       eza
+      uwsm
       wget
       freshfetch
     ]

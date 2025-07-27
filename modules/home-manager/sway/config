@@ -32,28 +32,28 @@ input 2362:628:PIXA3854:00_093A:0274_Touchpad natural_scroll enabled tap enable
 output * bg /home/ngrogan/personal/nixos-config/wallpaper.png fill
 
 # Key bindings
-    # Start a terminal
-    bindsym $mod+Return exec $term
+# Start a terminal
+bindsym $mod+Return exec $term
 
-    # Kill focused window
-    bindsym $mod+Shift+q kill
+# Kill focused window
+bindsym $mod+Shift+q kill
 
-    # Drag floating windows by holding down $mod and left mouse button.
-    # Resize them with right mouse button + $mod.
-    # Despite the name, also works for non-floating windows.
-    # Change normal to inverse to use left mouse button for resizing and right
-    # mouse button for dragging.
-    floating_modifier $mod normal
+# Drag floating windows by holding down $mod and left mouse button.
+# Resize them with right mouse button + $mod.
+# Despite the name, also works for non-floating windows.
+# Change normal to inverse to use left mouse button for resizing and right
+# mouse button for dragging.
+floating_modifier $mod normal
 
-    # Reload the configuration file
-    bindsym $mod+Shift+c reload
+# Reload the configuration file
+bindsym $mod+Shift+c reload
 
-    # Screenshots
-    bindsym $mod+s exec grim  -g "$(slurp)" ~/Desktop/Screenshot-$(date +'%H:%M:%S.png')
-    # Use grimshot.
-    # bindsym Print exec grim- save area
-    # bindsym Shift+Print exec grim save screen
-    # bindsym $mod+Print exec grim save active
+# Screenshots
+bindsym $mod+s exec grim  -g "$(slurp)" ~/Desktop/Screenshot-$(date +'%H:%M:%S.png')
+# Use grimshot.
+# bindsym Print exec grim- save area
+# bindsym Shift+Print exec grim save screen
+# bindsym $mod+Print exec grim save active
 
 
 # Moving around:
@@ -144,17 +144,17 @@ bindsym Shift+XF86AudioMedia exec $browser $url_manual
 bindsym $mod+g exec wl-copy ""
 
 # Layout stuff:
-    # Split verticaly =
-    bindsym $mod+v splitv
+# Split verticaly =
+bindsym $mod+v splitv
 
-    # Split horizontaly ||
-#    bindsym $mod+h splith
+# Split horizontaly ||
+#  bindsym $mod+h splith
 
-    # Make the current focus fullscreen
-    bindsym $mod+f fullscreen
+# Make the current focus fullscreen
+bindsym $mod+f fullscreen
 
-    # Toggle the current focus between tiling and floating mode
-    bindsym $mod+Shift+space floating toggle
+# Toggle the current focus between tiling and floating mode
+bindsym $mod+Shift+space floating toggle
 
 # Resizing containers:
 mode "resize" {
@@ -239,6 +239,9 @@ for_window [app_id="firefox" title="^Picture-in-Picture$"] \
 for_window [app_id="firefox" title= "Extension: (Bitwarden Password Manager) - Bitwarden — Mozilla Firefox"] floating enable
 for_window [class="Spotify"] move scratchpad
 bindsym $mod+Shift+m [class="Spotify"] scratchpad show
+
+# Open ChatGPT
+bindsym $mod+c exec ~/.config/sway/window-do.sh "[app_id=chrome-chatgpt.com__-Default] focus" '"exec chromium --class "ChatGPT" --ozone-platform=wayland --app="https://chatgpt.com/"'
 
 # Fixes
 exec dbus-sway-environment
