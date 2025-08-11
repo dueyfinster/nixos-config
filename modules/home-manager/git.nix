@@ -20,7 +20,7 @@
   home.shellAliases = {
     # Git
     g = "git";
-    # ga = "git add";
+    ga = "git add";
     gaa = "git add --all";
     # Git commit
     gc = "git commit --verbose";
@@ -28,7 +28,7 @@
     gca = "git commit --verbose --amend";
     gcaa = "git commit --verbose --amend --all";
 
-    # gd = "git diff";
+    gd = "git diff";
     gdc = "git diff --cached";
 
     gco = "git checkout";
@@ -37,8 +37,8 @@
     gs = "git status";
     gss = "git status --short";
 
-    # grh = "git reset";
-    grhh = "git reset --hard";
+    gr = "git reset";
+    grh = "git reset --hard";
 
     gf = "git fetch";
     # a pull, is a fetch and merge
@@ -46,8 +46,7 @@
 
     gp = "git push";
     gpF = "git push --force";
-    gpf = "git push --force-with-lease";
-    gpc = "git push --set-upstream origin HEAD";
+    gP = "git pull";
 
     # git clone
     gcl = "git clone --recursive-submodules";
